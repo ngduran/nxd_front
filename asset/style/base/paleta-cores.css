@@ -1,0 +1,10 @@
+:root {
+    --color-primary: #1748AF; /* Azul Escuro (Botão, Título) */
+    --color-accent: #ffc346; /* Amarelo Ouro (Destaque, Foco) AF7E17 */
+    --color-border: #BCBDC1; /* Cinza Claro (Borda Padrão) */
+    --color-background-soft: #E0E4FD; /* Azul Claro Suave (Fundo da página) */
+    --color-text-dark: #2E2F33; /* Cinza Escuro (Textos) */
+    --color-card-bg: #FFFFFF; /* Branco (Fundo do Card) */
+    --color-input-bg: #FFFFFF; /* Branco (Fundo dos campos) */
+    --color-cell-key: #8ec1f3; /* Célula da posição da aula */
+}

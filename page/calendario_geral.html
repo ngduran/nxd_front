@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof Time Calendário - Geral</title>
+    <link rel="stylesheet" href="../asset/style/base/base-form.css">   
+    <link rel="stylesheet" href="../asset/style/calendario_geral.css">   
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+     <form id="contaForm" class="form-container" autocomplete="off">
+        <div class="field-container">
+            <div class="field-group col-0">
+                <div class="field-col">
+                    <h1 class="header-title" data-translate="lbl_titulo">Calendário Geral</h1>
+                </div>
+            </div>
+        </div>
+        <div class="field-container">
+            <div class="field-group col-0">
+                <div class="field-col posicao-end">
+                    <button type="button" id="btn-pt" class="lang-btn active">
+                            <img class="icon-flag" src="../asset/icon/bandeira-do-brasil.png" alt="Bandeira do Brasil">
+                        </button>                   
+                        <button type="button" id="btn-es" class="lang-btn">
+                            <img class="icon-flag" src="../asset/icon/paraguai.png" alt="Bandeira do Paraguai">
+                        </button> 
+                </div>
+            </div>
+        </div>
+        <div class="field-container">
+            <div class="field-group col-0">
+                 <div class="field-col">
+                    <data-geral-field
+                        scope                  = "calendario_geral"
+                        id                     = "data_geral"
+                        name                   = "data_geral"                                
+                        data_translate_label   = "lbl_data_geral"
+                        data_translate_ph      = "ph_data_geral"
+                        data_translate_tooltip = "tp_lbl_data_geral"
+                        icon_question          = "fa-solid fa-circle-question info-question"
+                        >
+                    </data-geral-field>
+                 </div>
+            </div>
+        </div>
+        <div class="field-container">
+            <div class="field-group col-0">
+                 <div class="field-col">
+                    <tipo-dia-select
+                        scope                  = "calendario_geral"
+                        id                     = "dia_tipo"
+                        name                   = "dia_tipo"                                
+                        data_translate_label   = "lbl_dia_tipo"
+                        data_translate_ph      = "ph_dia_tipo"
+                        data_translate_op      = "ph_dia_tipo_op0" 
+                        data_translate_tooltip = "tp_lbl_dia_tipo"                                
+                        icon_question          = "fa-solid fa-circle-question info-question"                                
+                        >
+                    </tipo-dia-select>
+                 </div>
+            </div>
+        </div>
+        <div class="field-container">
+            <div class="field-group col-0">
+                 <div class="field-col">
+                    <descricao-field
+                        scope                  = "calendario_geral"
+                        id                     = "descricao"
+                        name                   = "descricao"                                
+                        data_translate_label   = "lbl_descricao"
+                        data_translate_ph      = "ph_descricao"                        
+                        data_translate_tooltip = "tp_lbl_descricao"                                
+                        icon_question          = "fa-solid fa-circle-question info-question"                                
+                        >
+                    </descricao-field>
+                 </div>
+            </div>
+        </div>
+        <div class="field-container">
+            <div class="field-group col-0">
+                 <div class="field-col">
+                    <cor-descricao-field
+                        scope                  = "calendario_geral"
+                        id                     = "cor_de_identificacao"
+                        name                   = "cor_de_identificacao"                                
+                        data_translate_label   = "lbl_cor_de_identificacao"                                             
+                        data_translate_tooltip = "tp_lbl_cor_de_identificacao"                         
+                        icon_question          = "fa-solid fa-circle-question info-question"                                
+                        >
+                    </cor-descricao-field>
+                 </div>
+            </div>
+        </div>
+        <div class="field-container">
+            <div class="field-group col-5">
+                <div class="field-col"></div>
+                <button type="button" id="voltarBtn"    class="cta-button" data-translate="lbl_voltarBtn">Voltar</button>
+            </div>   
+            <div class="field-group col-5">
+                <div class="field-col"></div>
+                <button type="button" id="cadastrarBtn" class="cta-button" data-translate="lbl_cadastrarBtn">Salvar</button>
+            </div>
+        </div>
+
+     </form>
+     
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <script type="module" src="../script/components/form/calendario/Data_Geral_Field.js"></script>
+    <script type="module" src="../script/components/form/calendario/Tipo_Dia_Select.js"></script>
+    <script type="module" src="../script/components/form/calendario/Descricao_Field.js"></script>
+    <script type="module" src="../script/components/form/calendario/Cor_Descricao_Field.js"></script>
+    
+    <script type="module" src="../script/pages/calendario_geral.js"></script>
+</body>
+</html>

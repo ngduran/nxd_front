@@ -1,0 +1,117 @@
+/* --- Tabela --- */
+.table-section {
+    margin-top: 30px;
+    border-top: 2px solid var(--color-background-soft);
+    padding-top: 20px;
+}
+
+.table-title {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    font-size: 0.9rem;
+}
+
+th {
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid var(--color-background-soft);
+    color: var(--color-text-dark);
+}
+
+tr:hover {
+    background-color: #f9f9ff;
+}
+
+.btn-action {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1rem;
+    transition: transform 0.2s;
+}
+
+.btn-action.edit { color: var(--color-primary); }
+.btn-action.delete { color: #ff4d4d; }
+
+.btn-action:hover {
+    transform: scale(1.2);
+}
+
+/* Container da Paginação */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* Estilo Base dos Botões */
+.btn-pagination {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+/* Efeito Hover */
+.btn-pagination:hover:not(:disabled) {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+/* Estado Desabilitado */
+.btn-pagination:disabled {
+    cursor: not-allowed;
+    background-color: #eaedf0;
+    color: #a0a0a0;
+    border-color: #d3d3d3;
+    opacity: 0.7;
+}
+
+/* Informação da Página (Span) */
+#infoPagina {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    min-width: 100px;
+    text-align: center;
+}
+
+/* Ajuste opcional para ícones */
+.btn-pagination i {
+    font-size: 12px;
+}

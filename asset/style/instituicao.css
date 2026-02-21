@@ -1,0 +1,113 @@
+.input-group input, .input-group select {    
+    -webkit-appearance: none !important; 
+    -moz-appearance: none !important; 
+    appearance: none !important;
+}
+
+/* Dica visual: mudar o cursor para indicar que o campo é clicável em toda área */
+input[type="time"] {
+    cursor: pointer !important;
+}
+
+/* Garante que o container tenha espaço e não esconda o menu */
+.input-group {    
+    overflow: visible !important; /* Essencial para o pop-up não ser cortado */
+}
+
+.edit-button {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    //background-color: var(--color-primary);
+    background-color: var(--color-accent);
+    //background-color: var(--color-primary); /* Cor Principal: Azul Escuro */ 
+    color: var(--color-primary);
+    //color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    //z-index: 10;
+}
+
+.edit-button:hover {    
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+
+}
+
+.edit-button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.edit-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* .info-question {
+    margin-left: 10px;
+} */
+
+
+/* Garante que o card aceite elementos posicionados dentro dele */
+.form-card {
+    position: relative;
+    padding-top: 50px; /* Dá espaço para os botões não atropelarem o título */
+}
+
+/* Seletor de idioma */
+.language-selector {
+    position: absolute; /* Em vez de fixed */
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    display: flex;
+    gap: 5px;
+}
+
+/* .lang-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+} */
+
+.lang-btn:hover {
+    background: #f0f0f0;
+}
+
+/* .lang-btn.active {
+    background: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+} */
+
+.icon-flag {
+    width: 24px;
+    height: 24px;
+}
+
+/* No seu arquivo .css principal */
+estado-select:not(:defined) {
+    display: block;
+    height: 78px; 
+    opacity: 0;
+}
+
+/* estado-select { contain: initial; display: block; height: 100px; } */

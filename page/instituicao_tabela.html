@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituição</title>
+    <link rel="stylesheet" href="../asset/style/base/base-form.css">
+    <link rel="stylesheet" href="../asset/style/instituicao_tabela.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <form id="instituicaoForm" class="form-container">
+
+        <div class="field-container">
+            <div class="field-group col-0">
+                <div class="field-col">
+                    <h1 class="header-title" data-translate="lbl_titulo">Instituição</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-container">
+            <div class="field-group col-0">
+                <div class="field-col posicao-end">
+                    <button type="button" id="btn-pt" class="lang-btn active">
+                            <img class="icon-flag" src="../asset/icon/bandeira-do-brasil.png" alt="Bandeira do Brasil">
+                        </button>                   
+                        <button type="button" id="btn-es" class="lang-btn">
+                            <img class="icon-flag" src="../asset/icon/paraguai.png" alt="Bandeira do Paraguai">
+                        </button> 
+                </div>
+            </div>
+        </div>
+
+
+        <div class="field-container">
+
+               <div class="field-group col-8">
+                   <div class="field-col">
+                       <instituicao-field
+                                scope                  = "administracao"
+                                id                     = "nome"
+                                name                   = "nome"                                
+                                data_translate_label   = "lbl_nome"
+                                data_translate_ph      = "ph_nome"
+                                data_translate_tooltip = "tp_lbl_nome"
+                                icon_question          = "fa-solid fa-circle-question info-question"
+                                icon_edicao            = "fa-regular fa-pen-to-square"
+                        >
+                        </instituicao-field>
+                   </div>
+               </div>
+               <div class="field-group col-2">
+                   <div class="field-col">
+                       <hora-inicio-field
+                            scope                  = "administracao"
+                            id                     = "horarioInicial"
+                            name                   = "horarioInicial" 
+                            data_translate_label   = "lbl_horario_inicial"
+                            data_translate_tooltip = "tp_lbl_horario_inicial"                                
+                            icon_question          = "fa-solid fa-circle-question info-question"                                
+                            icon_edicao            = "fa-regular fa-pen-to-square"
+                        >
+                        </hora-inicio-field>
+                   </div>
+               </div>
+        </div>
+
+        <div class="field-container">
+
+               <div class="field-group col-8">
+                   <div class="field-col">
+                       <administracao-field
+                            scope                  = "administracao"                      
+                            id                     = "administracao"    
+                            name                   = "administracao"
+                            data_translate_label   = "lbl_administracao"
+                            data_translate_op      = "ph_administracao_op0"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            data_translate_tooltip = "tp_lbl_administracao"
+                            placeholder            = "Selecione a adminstração"
+                            icon_edicao            = "fa-regular fa-pen-to-square"
+                        >
+                        </administracao-field>  
+                   </div>
+               </div>
+               <div class="field-group col-2">
+                   <div class="field-col">
+                       <hora-aula-field
+                            scope                  = "administracao"
+                            id                     = "horaAula"
+                            name                   = "horaAula" 
+                            data_translate_label   = "lbl_hora_aula"
+                            data_translate_tooltip = "tp_lbl_hora_aula"                                
+                            icon_question          = "fa-solid fa-circle-question info-question"                                
+                            icon-edicao            = "fa-regular fa-pen-to-square"
+                        >
+                        </hora-aula-field>
+                   </div>
+               </div>
+        </div>
+
+
+        <div class="field-container">
+
+               <div class="field-group col-5">
+                   <div class="field-col">
+                       <estado-select 
+                            scope                  = "instituicao"
+                            id                     = "estado"
+                            name                   = "estado"
+                            emit-change            = "emit-change"
+                            data_translate_label   = "lbl_estado"
+                            data_translate_op      = "ph_estado_op0"                   
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            data_translate_tooltip = "tp_lbl_estado"
+                            placeholder            = "Selecione o estado"
+                            icon_edicao            = "fa-regular fa-pen-to-square"
+                        >
+                        </estado-select>
+                   </div>
+               </div>
+               <div class="field-group col-5">
+                    <div class="field-col">
+                       <cidade-field 
+                            scope                  = "instituicao"
+                            id                     = "cidade"
+                            name                   = "cidade"                                
+                            data_translate_label   = "lbl_cidade"
+                            data_translate_ph      = "ph_cidade"
+                            data_translate_tooltip = "tp_lbl_cidade"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            
+                        >
+                        </cidade-field>
+      
+                        <municipio-select 
+                            style                   = "display: none;"
+                            scope                   = "instituicao"                            
+                            id                      = "municipio"         
+                            name                    = "municipio"
+                            data_translate_label    = "lbl_cidade"
+                            data_translate_ph       = "ph_cidade"
+                            data_translate_op       = "ph_municipio_op0"                   
+                            data_translate-tooltip  = "tp_lbl_municipio"
+                            icon_question           = "fa-solid fa-circle-question info-question"
+                            icon-edicao             = "fa-regular fa-pen-to-square"
+                        >
+                        </municipio-select>
+                   </div>
+                   
+               </div>
+        </div>
+
+        <div class="field-container">
+            <div class="field-group col-5">
+                <div class="field-col"></div>
+                <button type="button" id="voltarBtn"    class="cta-button" data-translate="lbl_voltarBtn">Voltar</button>
+            </div>   
+            <div class="field-group col-5">
+                <div class="field-col"></div>
+                <button type="button" id="cadastrarBtn" class="cta-button" data-translate="lbl_cadastrarBtn">Salvar</button>
+            </div>
+        </div>
+
+        
+           
+
+    </form>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <script type="module" src="../script/pages/instituicao.js"></script> 
+    <script type="module" src="../script/components/form/instituicao/Instituicao_Field.js"></script> 
+    <script type="module" src="../script/components/form/instituicao/Hora_Inicio_Field.js"></script>
+    <script type="module" src="../script/components/form/instituicao/Administracao_Field.js"></script>
+    <script type="module" src="../script/components/form/instituicao/Hora_Aula_Field.js"></script>
+    <script type="module" src="../script/components/form/instituicao/Estado_Field.js"></script>
+    <script type="module" src="../script/components/form/instituicao/Cidade_Field.js"></script>
+    <script type="module" src="../script/components/form/instituicao/Municipio_Field.js"></script> 
+</body>
+</html>
