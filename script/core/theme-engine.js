@@ -1,222 +1,85 @@
-// window.addEventListener('load', () => {
-//     const path = window.location.pathname;
-//     const root = document.documentElement;
-
-//     // Definição das paletas em objetos JS (Fácil de manter)
-//     const paletas = {
-//         professor: {
-//             '--color-primary'        : '#1748AF',
-//             '--color-accent'         : '#ffc346',
-//             '--color-border'         : '#BCBDC1',
-//             '--color-background-soft': '#E0E4FD',
-//             '--color-text-dark'      : '#2E2F33',
-//             '--color-card-bg'        : '#FFFFFF',
-//             '--color-input-bg'       : '#FFFFFF',
-//             '--color-cell-key'       : '#8ec1f3'
-//         },
-//         pastoral: {
-//             '--color-primary'        : '#6D2E46',
-//             '--color-accent'         : '#A3B18A',
-//             '--color-border'         : '#D8CFC4',
-//             '--color-background-soft': '#F5EFE6',
-//             '--color-text-dark'      : '#2B2B2B',
-//             '--color-card-bg'        : '#FFFFFF',
-//             '--color-input-bg'       : '#FFFFFF',
-//             '--color-cell-key'       : '#C9ADA7'
-//         }
-//     };
-
-//     // Verifica se a URL atual OU a página anterior (referrer) contém 'pastoral'
-//     let contexto = (path.includes('pastoral') || document.referrer.includes('pastoral')) ? 'pastoral' : 'professor';
-//     const cores = paletas[contexto];
-
-//     let estiloDinamico = ":root {";
-
-//         for (const [variavel, valor] of Object.entries(cores)) {
-//             estiloDinamico += `${variavel}: ${valor} !important; `;
-//         }
-
-//     estiloDinamico += "}";
-
-//     // Cria uma tag <style> e coloca no head do documento
-//     const styleTag = document.createElement('style');
-//     styleTag.innerHTML = estiloDinamico;
-//     document.head.appendChild(styleTag);
-
-//     console.log(`Paleta aplicada: ${contexto}`);
-
-//     console.log(`Configuração salva para: ${contexto}. Redirecionando...`);
-
-    
-//     // 3. A TRAVA: Só redireciona se o arquivo NÃO for 'home.html'
-//     // Se a URL contiver 'home.html', o script para aqui e apenas mantém as cores.
-//     // if (!path.includes('home.html')) {
-//     //     console.log("Redirecionando para a home...");
-//     //     window.location.href = "../page/home.html";
-//     // } else {
-//     //     console.log("Permanecendo na home com a paleta aplicada.");
-//     // }
-
-
-//     // --- LÓGICA DE REDIRECIONAMENTO COM NOVOS IDENTIFICADORES ---
-    
-//     // Verifica se o script está rodando dentro de um iframe
-//     const isIframe = window.self !== window.top;
-    
-//     // Verifica se a página atual é a home.html
-//     const isHome = path.includes('home.html');
-
-//     // Só redireciona se NÃO estiver em um iframe E NÃO estiver na home
-//     if (!isIframe && !isHome) {
-//         console.log(`Página de entrada [${contexto}] detectada. Redirecionando para Home...`);
-//         window.location.href = "../page/home.html";
-//     } else {
-//         console.log(`Contexto [${contexto}] aplicado. Sem redirecionamento (isIframe: ${isIframe}, isHome: ${isHome})`);
-//     }
-
-
-//     // 1. Dicionário de Textos
-//     const labels = {
-//         professor: "Prof Time",
-//         pastoral: "Pastoral"
-//     };
-
-//     const tituloDinamico = labels[contexto];
-
-//     // 2. Atualiza o <title> (Aba do navegador)
-//     document.title = `${tituloDinamico} - Sistema`;
-
-//     // 3. Atualiza o <span class="logo-text"> (Header Mobile)
-//     const spanLogo = document.querySelector('.logo-text');
-//     if (spanLogo) {
-//         spanLogo.textContent = tituloDinamico;
-//     }
-
-//     // 4. Atualiza o <h2> (Sidebar Desktop)
-//     const h2Logo = document.querySelector('.sidebar-header h2');
-//     if (h2Logo) {
-//         h2Logo.textContent = tituloDinamico;
-//     }
-    
-// });
-
-
-
-
-
-
-
-
 window.addEventListener('load', () => {
-    const path = window.location.pathname;
-    const root = document.documentElement;
-
-    // Verifica se o script está rodando dentro de um iframe
-    const isIframe = window.self !== window.top;
-    
-    // Verifica se a página atual é a home.html
-    const isHome = path.includes('home.html');
-
-    
-    // Ajuste para o Iframe: Se estiver em iframe, olha o referrer do PAI
-    const referrerEfetivo = isIframe ? window.top.document.referrer : document.referrer;
-
-    console.group("ThemeEngine: Rastreamento de Inicialização");
-    console.log("1. Path atual:", path);
-    console.log("2. Referrer (Página anterior):", document.referrer);
-    console.group("ThemeEngine: Rastreamento de Inicialização");
-    console.log("1. Path atual:", path);
-    console.log("2. Referrer Efetivo (usado para detecção):", referrerEfetivo);
-    console.log("3. É Iframe?", isIframe);
-
-
-    // Definição das paletas em objetos JS (Fácil de manter)
-    const paletas = {
-        professor: {
-            '--color-primary'         : '#1748AF',
-            '--color-accent'          : '#ffc346',
-            '--color-border'          : '#BCBDC1',
-            '--color-background-soft' : '#E0E4FD',
-            '--color-text-dark'       : '#2E2F33',
-            '--color-card-bg'         : '#FFFFFF',
-            '--color-input-bg'        : '#FFFFFF',
-            '--color-cell-key'        : '#8ec1f3'
+    const CONFIG = {
+        paletas: {
+            professor: {
+                '--color-primary': '#1748AF',
+                '--color-accent': '#ffc346',
+                '--color-border': '#BCBDC1',
+                '--color-background-soft': '#E0E4FD',
+                '--color-text-dark': '#2E2F33',
+                '--color-card-bg': '#FFFFFF',
+                '--color-input-bg': '#FFFFFF',
+                '--color-cell-key': '#8ec1f3'
+            },
+            pastoral: {
+                '--color-primary': '#6D2E46',
+                '--color-accent': '#A3B18A',
+                '--color-border': '#D8CFC4',
+                '--color-background-soft': '#F5EFE6',
+                '--color-text-dark': '#2B2B2B',
+                '--color-card-bg': '#FFFFFF',
+                '--color-input-bg': '#FFFFFF',
+                '--color-cell-key': '#C9ADA7'
+            }
         },
-        pastoral: {
-            '--color-primary'         : '#6D2E46',
-            '--color-accent'          : '#A3B18A',
-            '--color-border'          : '#D8CFC4',
-            '--color-background-soft' : '#F5EFE6',
-            '--color-text-dark'       : '#2B2B2B',
-            '--color-card-bg'         : '#FFFFFF',
-            '--color-input-bg'        : '#FFFFFF',
-            '--color-cell-key'        : '#C9ADA7'
+        labels: {
+            professor: "Prof Time",
+            pastoral: "Pastoral"
         }
     };
 
-    // Verifica se a URL atual OU a página anterior (referrer) contém 'pastoral'
-    const isPastoralPath = path.includes('pastoral');
-    //const isPastoralReferrer = document.referrer.includes('pastoral');
-    const isPastoralReferrer = referrerEfetivo.includes('pastoral');
-    
-    console.log("4. Contém 'pastoral' no Path?", isPastoralPath);
-    console.log("5. Contém 'pastoral' no Referrer?", isPastoralReferrer);
+    const getContexto = () => {
+        const path = window.location.pathname;
+        const isIframe = window.self !== window.top;
+        const referrerEfetivo = isIframe ? window.top.document.referrer : document.referrer;
 
-    let contexto = (isPastoralPath || isPastoralReferrer) ? 'pastoral' : 'professor';
-    
-    console.log("6. Contexto Definido:", contexto.toUpperCase());
-    console.groupEnd();
+        const isPastoralPath = path.includes('pastoral');
+        const isPastoralReferrer = referrerEfetivo.includes('pastoral');
 
-    const cores = paletas[contexto];
-
-    let estiloDinamico = ":root {";
-    for (const [variavel, valor] of Object.entries(cores)) {
-        estiloDinamico += `${variavel}: ${valor} !important; `;
-    }
-    estiloDinamico += "}";
-
-    // Cria uma tag <style> e coloca no head do documento
-    const styleTag = document.createElement('style');
-    styleTag.innerHTML = estiloDinamico;
-    document.head.appendChild(styleTag);
-
-    console.log(`Paleta aplicada: ${contexto}`);
-
-    // --- LÓGICA DE REDIRECIONAMENTO COM NOVOS IDENTIFICADORES ---
-    
-    
-
-    // Só redireciona se NÃO estiver em um iframe E NÃO estiver na home
-    if (!isIframe && !isHome) {
-        console.log(`Página de entrada [${contexto}] detectada. Redirecionando para Home...`);
-        window.location.href = "../page/home.html";
-    } else {
-        console.log(`Contexto [${contexto}] aplicado. Sem redirecionamento.`);
-    }
-    console.groupEnd();
-
-    // 1. Dicionário de Textos
-    const labels = {
-        professor: "Prof Time",
-        pastoral: "Pastoral"
+        return (isPastoralPath || isPastoralReferrer) ? 'pastoral' : 'professor';
     };
 
-    const tituloDinamico = labels[contexto];
+    const aplicarCores = (contexto) => {
+        const cores = CONFIG.paletas[contexto];
+        let estiloDinamico = ":root {";
+        for (const [variavel, valor] of Object.entries(cores)) {
+            estiloDinamico += `${variavel}: ${valor} !important; `;
+        }
+        estiloDinamico += "}";
 
-    // 2. Atualiza o <title> (Aba do navegador)
-    document.title = `${tituloDinamico} - Sistema`;
+        const styleTag = document.createElement('style');
+        styleTag.innerHTML = estiloDinamico;
+        document.head.appendChild(styleTag);
+    };
 
-    // 3. Atualiza o <span class="logo-text"> (Header Mobile)
-    const spanLogo = document.querySelector('.logo-text');
-    if (spanLogo) {
-        spanLogo.textContent = tituloDinamico;
-        console.log("Texto Logo Mobile atualizado para:", tituloDinamico);
-    }
+    const aplicarIdentidadeVisual = (contexto) => {
+        const tituloDinamico = CONFIG.labels[contexto];
+        document.title = `${tituloDinamico} - Sistema`;
 
-    // 4. Atualiza o <h2> (Sidebar Desktop)
-    const h2Logo = document.querySelector('.sidebar-header h2');
-    if (h2Logo) {
-        h2Logo.textContent = tituloDinamico;
-        console.log("Texto Sidebar atualizado para:", tituloDinamico);
-    }
+        const spanLogo = document.querySelector('.logo-text');
+        if (spanLogo) {
+            spanLogo.textContent = tituloDinamico;
+        }
+
+        const h2Logo = document.querySelector('.sidebar-header h2');
+        if (h2Logo) {
+            h2Logo.textContent = tituloDinamico;
+        }
+    };
+
+    const gerenciarRedirecionamento = () => {
+        const path = window.location.pathname;
+        const isIframe = window.self !== window.top;
+        const isHome = path.includes('home.html');
+
+        if (!isIframe && !isHome) {
+            window.location.href = "../page/home.html";
+        }
+    };
+
+    // Execução da lógica organizada
+    const contexto = getContexto();
+    aplicarCores(contexto);
+    aplicarIdentidadeVisual(contexto);
+    gerenciarRedirecionamento();
 });
