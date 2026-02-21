@@ -26,39 +26,76 @@ window.addEventListener('load', () => {
         }
     };
 
-    // Identifica o contexto pela URL
-    let contexto = path.includes('pastoral') ? 'pastoral' : 'professor';
-
-    // Aplica as cores da paleta escolhida no :root
+    // Verifica se a URL atual OU a página anterior (referrer) contém 'pastoral'
+    let contexto = (path.includes('pastoral') || document.referrer.includes('pastoral')) ? 'pastoral' : 'professor';
     const cores = paletas[contexto];
-    for (const [variavel, valor] of Object.entries(cores)) {
-        //root.style.setProperty(variavel, valor);
-        document.documentElement.style.setProperty(variavel, valor, 'important');
-    }
+
+    let estiloDinamico = ":root {";
+
+        for (const [variavel, valor] of Object.entries(cores)) {
+            estiloDinamico += `${variavel}: ${valor} !important; `;
+        }
+
+    estiloDinamico += "}";
+
+    // Cria uma tag <style> e coloca no head do documento
+    const styleTag = document.createElement('style');
+    styleTag.innerHTML = estiloDinamico;
+    document.head.appendChild(styleTag);
 
     console.log(`Paleta aplicada: ${contexto}`);
 
     console.log(`Configuração salva para: ${contexto}. Redirecionando...`);
 
-    //window.location.href = "../page/home.html";
-
-    // 3. REDIRECIONA: Ajuste o caminho conforme sua pasta
-    // Se a home.html estiver em /nxd_front/page/home.html:
-    // setTimeout(() => {
-    //     window.location.href = "../page/home.html";
-    // }, 500); // Pequeno delay para garantir que o log seja visto no teste
-   
-
-    // Redirecionamento condicional simples:
-    // Se a URL termina com a pasta (entrada), vai para a home.
-    // Se já estiver na home.html ou qualquer outra página, não faz nada.
+    
     // 3. A TRAVA: Só redireciona se o arquivo NÃO for 'home.html'
     // Se a URL contiver 'home.html', o script para aqui e apenas mantém as cores.
-    if (!path.includes('home.html')) {
-        console.log("Redirecionando para a home...");
+    // if (!path.includes('home.html')) {
+    //     console.log("Redirecionando para a home...");
+    //     window.location.href = "../page/home.html";
+    // } else {
+    //     console.log("Permanecendo na home com a paleta aplicada.");
+    // }
+
+
+    // --- LÓGICA DE REDIRECIONAMENTO COM NOVOS IDENTIFICADORES ---
+    
+    // Verifica se o script está rodando dentro de um iframe
+    const isIframe = window.self !== window.top;
+    
+    // Verifica se a página atual é a home.html
+    const isHome = path.includes('home.html');
+
+    // Só redireciona se NÃO estiver em um iframe E NÃO estiver na home
+    if (!isIframe && !isHome) {
+        console.log(`Página de entrada [${contexto}] detectada. Redirecionando para Home...`);
         window.location.href = "../page/home.html";
     } else {
-        console.log("Permanecendo na home com a paleta aplicada.");
+        console.log(`Contexto [${contexto}] aplicado. Sem redirecionamento (isIframe: ${isIframe}, isHome: ${isHome})`);
+    }
+
+
+    // 1. Dicionário de Textos
+    const labels = {
+        professor: "Prof Time",
+        pastoral: "Pastoral"
+    };
+
+    const tituloDinamico = labels[contexto];
+
+    // 2. Atualiza o <title> (Aba do navegador)
+    document.title = `${tituloDinamico} - Sistema`;
+
+    // 3. Atualiza o <span class="logo-text"> (Header Mobile)
+    const spanLogo = document.querySelector('.logo-text');
+    if (spanLogo) {
+        spanLogo.textContent = tituloDinamico;
+    }
+
+    // 4. Atualiza o <h2> (Sidebar Desktop)
+    const h2Logo = document.querySelector('.sidebar-header h2');
+    if (h2Logo) {
+        h2Logo.textContent = tituloDinamico;
     }
     
 });
