@@ -73,5 +73,29 @@ window.addEventListener('load', () => {
     } else {
         console.log(`Contexto [${contexto}] aplicado. Sem redirecionamento (isIframe: ${isIframe}, isHome: ${isHome})`);
     }
+
+
+    // 1. Dicionário de Textos
+    const labels = {
+        professor: "Prof Time",
+        pastoral: "Pastoral"
+    };
+
+    const tituloDinamico = labels[contexto];
+
+    // 2. Atualiza o <title> (Aba do navegador)
+    document.title = `${tituloDinamico} - Sistema`;
+
+    // 3. Atualiza o <span class="logo-text"> (Header Mobile)
+    const spanLogo = document.querySelector('.logo-text');
+    if (spanLogo) {
+        spanLogo.textContent = tituloDinamico;
+    }
+
+    // 4. Atualiza o <h2> (Sidebar Desktop)
+    const h2Logo = document.querySelector('.sidebar-header h2');
+    if (h2Logo) {
+        h2Logo.textContent = tituloDinamico;
+    }
     
 });
