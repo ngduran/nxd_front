@@ -50,11 +50,28 @@ window.addEventListener('load', () => {
     
     // 3. A TRAVA: Só redireciona se o arquivo NÃO for 'home.html'
     // Se a URL contiver 'home.html', o script para aqui e apenas mantém as cores.
-    if (!path.includes('home.html')) {
-        console.log("Redirecionando para a home...");
+    // if (!path.includes('home.html')) {
+    //     console.log("Redirecionando para a home...");
+    //     window.location.href = "../page/home.html";
+    // } else {
+    //     console.log("Permanecendo na home com a paleta aplicada.");
+    // }
+
+
+    // --- LÓGICA DE REDIRECIONAMENTO COM NOVOS IDENTIFICADORES ---
+    
+    // Verifica se o script está rodando dentro de um iframe
+    const isIframe = window.self !== window.top;
+    
+    // Verifica se a página atual é a home.html
+    const isHome = path.includes('home.html');
+
+    // Só redireciona se NÃO estiver em um iframe E NÃO estiver na home
+    if (!isIframe && !isHome) {
+        console.log(`Página de entrada [${contexto}] detectada. Redirecionando para Home...`);
         window.location.href = "../page/home.html";
     } else {
-        console.log("Permanecendo na home com a paleta aplicada.");
+        console.log(`Contexto [${contexto}] aplicado. Sem redirecionamento (isIframe: ${isIframe}, isHome: ${isHome})`);
     }
     
 });
