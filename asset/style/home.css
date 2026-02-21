@@ -1,10 +1,18 @@
-:root {
+/* :root {
+    --color-primary: #1748AF;
+    --color-accent: #ffc346;
+    --color-bg: #E0E4FD;
+    
+} */
+
+/* :root {
     --color-primary: #1748AF;
     --color-accent: #ffc346;
     --color-bg: #E0E4FD;
     --sidebar-width: 260px;
     --header-height: 60px;
-}
+} */
+
 
 /* 1. Reset e Base - Removendo travas de overflow */
 * { 
@@ -15,6 +23,8 @@
 }
 
 body { 
+    --sidebar-width: 260px;
+    --header-height: 60px;
     background: var(--color-bg); 
     min-height: 100dvh;
     display: flex;

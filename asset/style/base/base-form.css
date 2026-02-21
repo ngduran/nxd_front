@@ -1,13 +1,25 @@
 :root {
-    --color-primary: #1748AF; /* Azul Escuro (Botão, Título) */
-    --color-accent: #ffc346; /* Amarelo Ouro (Destaque, Foco) AF7E17 */
-    --color-border: #BCBDC1; /* Cinza Claro (Borda Padrão) */
-    --color-background-soft: #E0E4FD; /* Azul Claro Suave (Fundo da página) */
-    --color-text-dark: #2E2F33; /* Cinza Escuro (Textos) */
-    --color-card-bg: #FFFFFF; /* Branco (Fundo do Card) */
-    --color-input-bg: #FFFFFF; /* Branco (Fundo dos campos) */
-    --color-cell-key: #8ec1f3; /* Célula da posição da aula */
+    --color-primary: ; /* Azul Escuro (Botão, Título) */
+    --color-accent: ; /* Amarelo Ouro (Destaque, Foco) AF7E17 */
+    --color-border: ; /* Cinza Claro (Borda Padrão) */
+    --color-background-soft: ; /* Azul Claro Suave (Fundo da página) */
+    --color-text-dark: ; /* Cinza Escuro (Textos) */
+    --color-card-bg: ; /* Branco (Fundo do Card) */
+    --color-input-bg: ; /* Branco (Fundo dos campos) */
+    --color-cell-key: ; /* Célula da posição da aula */
 }
+
+/* Primeira paleta de cores */
+/* :root {
+    --color-primary: #1748AF;
+    --color-accent: #ffc346;
+    --color-border: #BCBDC1;
+    --color-background-soft: #E0E4FD;
+    --color-text-dark: #2E2F33;
+    --color-card-bg: #FFFFFF;
+    --color-input-bg: #FFFFFF;
+    --color-cell-key: #8ec1f3;
+} */
 
 /* Segunda paleta de cores */
 /* :root {

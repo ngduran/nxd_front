@@ -1,0 +1,60 @@
+window.addEventListener('load', () => {
+    const path = window.location.pathname;
+    const root = document.documentElement;
+
+    // Definição das paletas em objetos JS (Fácil de manter)
+    const paletas = {
+        professor: {
+            '--color-primary'        : '#1748AF',
+            '--color-accent'         : '#ffc346',
+            '--color-border'         : '#BCBDC1',
+            '--color-background-soft': '#E0E4FD',
+            '--color-text-dark'      : '#2E2F33',
+            '--color-card-bg'        : '#FFFFFF',
+            '--color-input-bg'       : '#FFFFFF',
+            '--color-cell-key'       : '#8ec1f3'
+        },
+        pastoral: {
+            '--color-primary'        : '#6D2E46',
+            '--color-accent'         : '#A3B18A',
+            '--color-border'         : '#D8CFC4',
+            '--color-background-soft': '#F5EFE6',
+            '--color-text-dark'      : '#2B2B2B',
+            '--color-card-bg'        : '#FFFFFF',
+            '--color-input-bg'       : '#FFFFFF',
+            '--color-cell-key'       : '#C9ADA7'
+        }
+    };
+
+    // Verifica se a URL atual OU a página anterior (referrer) contém 'pastoral'
+    let contexto = (path.includes('pastoral') || document.referrer.includes('pastoral')) ? 'pastoral' : 'professor';
+    const cores = paletas[contexto];
+
+    let estiloDinamico = ":root {";
+
+        for (const [variavel, valor] of Object.entries(cores)) {
+            estiloDinamico += `${variavel}: ${valor} !important; `;
+        }
+
+    estiloDinamico += "}";
+
+    // Cria uma tag <style> e coloca no head do documento
+    const styleTag = document.createElement('style');
+    styleTag.innerHTML = estiloDinamico;
+    document.head.appendChild(styleTag);
+
+    console.log(`Paleta aplicada: ${contexto}`);
+
+    console.log(`Configuração salva para: ${contexto}. Redirecionando...`);
+
+    
+    // 3. A TRAVA: Só redireciona se o arquivo NÃO for 'home.html'
+    // Se a URL contiver 'home.html', o script para aqui e apenas mantém as cores.
+    if (!path.includes('home.html')) {
+        console.log("Redirecionando para a home...");
+        window.location.href = "../page/home.html";
+    } else {
+        console.log("Permanecendo na home com a paleta aplicada.");
+    }
+    
+});
