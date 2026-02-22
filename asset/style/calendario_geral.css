@@ -1,12 +1,14 @@
+/* --- CONFIGURAÇÕES GERAIS EXISTENTES --- */
 .form-container { 
     width: 100% !important; 
     max-width: 400px !important; 
+    margin: 0 auto;
 }
 
-/* Estilização para o seletor de cor seguir o padrão Prof Time */
+/* Estilização para o seletor de cor */
 .color-picker-input {
     width: 100%;
-    height: 45px; /* Mesma altura dos seus outros inputs */
+    height: 45px; 
     padding: 5px;
     border: 1px solid var(--color-accent);
     border-radius: 8px;
@@ -22,4 +24,35 @@
 .color-picker-input::-webkit-color-swatch {
     border: none;
     border-radius: 4px;
+}
+
+/* --- BLOCO NOVO: EXCLUSIVO PARA O MODO MODAL --- */
+/* Estas regras matam o degradê e a rolagem da image_4bfd17 */
+
+body.modo-modal {
+    background: #FFFFFF !important; /* Branco total como na image_4c00b7 */
+    background-image: none !important; /* Remove qualquer degradê de fundo */
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important; /* Remove a barra de rolagem da image_4bfd17 */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+/* Garante que o form ocupe o espaço do modal sem restrições visuais */
+body.modo-modal .form-container {
+    box-shadow: none !important;
+    border: none !important;
+    max-width: 100% !important; /* Ajusta ao tamanho do SweetAlert */
+    padding: 20px !important;
+}
+
+/* Esconde elementos desnecessários no contexto do modal */
+body.modo-modal .mobile-header, 
+body.modo-modal #sidebar, 
+body.modo-modal .overlay,
+body.modo-modal header {
+    display: none !important;
 }
