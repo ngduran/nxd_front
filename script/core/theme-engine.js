@@ -30,7 +30,7 @@ window.addEventListener('load', () => {
         // Mapeamento de itens para REMOVER do menu em cada contexto
         // O texto deve ser idêntico ao que está no HTML (case-sensitive)
         menuPermitido: {
-            professor : ["Login", "Minha Conta", "Instituição", "Horário", "Evento", "Calendário"], // Itens que a Pastoral NÃO vê
+            professor : ["Login", "Minha Conta", "Instituição", "Horário", "Evento", "Calendário", "Planejamento"], // Itens que a Pastoral NÃO vê
             pastoral: ["Login", "Minha Conta", "Cúria", "Paróquia", "Voluntário"] // Itens que o Professor NÃO vê
         }
     };
