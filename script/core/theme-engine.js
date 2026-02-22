@@ -25,7 +25,40 @@ window.addEventListener('load', () => {
         labels: {
             professor: "Prof Time",
             pastoral: "Pastoral"
+        },
+
+        // Mapeamento de itens para REMOVER do menu em cada contexto
+        // O texto deve ser idêntico ao que está no HTML (case-sensitive)
+        menuPermitido: {
+            professor : ["Login", "Minha Conta", "Instituição", "Horário", "Evento", "Calendário"], // Itens que a Pastoral NÃO vê
+            pastoral: ["Login", "Minha Conta", "Cúria", "Paróquia", "Voluntário"] // Itens que o Professor NÃO vê
         }
+    };
+
+    const tratarMenu = (contexto) => {
+        const itensPermitidos = CONFIG.menuPermitido[contexto];  
+
+        if (!itensPermitidos) {           
+            return;
+        }
+
+        // Seleciona os links usando o seletor corrigido para o seu HTML
+        const linksMenu = document.querySelectorAll('.nav-links a');
+       
+        linksMenu.forEach((link) => {
+            const textoItem = link.innerText.trim();
+            
+            // Verifica se o texto do item NÃO está na lista de permitidos
+            const deveRemover = !itensPermitidos.includes(textoItem);
+
+            if (deveRemover) {
+                const liContainer = link.closest('li');
+                if (liContainer) {
+                    liContainer.remove();                   
+                }
+            } 
+        });
+       
     };
 
     const getContexto = () => {
@@ -81,5 +114,6 @@ window.addEventListener('load', () => {
     const contexto = getContexto();
     aplicarCores(contexto);
     aplicarIdentidadeVisual(contexto);
+    tratarMenu(contexto); // Nova função para tratar os itens
     gerenciarRedirecionamento();
 });
