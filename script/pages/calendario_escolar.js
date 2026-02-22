@@ -76,7 +76,7 @@ function abrirFormularioGeral(data) {
                     scrolling="no">
             </iframe>`,
         showConfirmButton: false,
-        width: '600px',
+        width: '400px',
         padding: '0',
         background: '#ffffff', 
         //borderRadius: '15px',
