@@ -1,7 +1,13 @@
 import { apiFetch, apiFetchGet, apiFetchGetWithId } from "../api/api-client.js";
 import { API_MAP } from "../api/api-config.js";
 
-export async function cadastrarUsuario(dados) {    
+export async function cadastrarUsuario(dados) {
+    // Rastreamento detalhado
+    console.group("🚀 Rastreamento: Cadastrar Usuário");
+    console.log("URL:", API_MAP.USUARIO.CREATE.path);
+    console.log("Método:", API_MAP.USUARIO.CREATE.method);
+    console.log("Dados enviados:", dados);
+    console.groupEnd();  
     return await apiFetch(API_MAP.USUARIO.CREATE, dados);
 }
 
@@ -30,9 +36,8 @@ export async function listarMunicipiosPorEstado(idEstado, termoBusca) {
 
 }
 
-export async function listarInstituicoes() {
+export async function listarInstituicoes() {    
     return await apiFetchGet(API_MAP.INSTITUICAO.FINDALL);
-
 }
 
 export async function listarAdministracoes() {

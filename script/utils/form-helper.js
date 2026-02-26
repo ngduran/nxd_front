@@ -1,3 +1,5 @@
+import { getContexto } from "../core/theme-engine.js";
+
 export function bloquearButton(btnId, textoButton) {
     const btn = document.getElementById(btnId);
     btn.disabled = true;
@@ -102,13 +104,23 @@ export function aplicarMascaraTelefone(valor) {
  * @param {string} nomePagina - O nome do arquivo (ex: 'login', 'home', 'index')
  */
 export function navegarPara(nomePagina, resetarShell = false) {    
-    const pagina = nomePagina.replace('.html', '');  
+    
     
     if (resetarShell) {
         // Altera a URL da janela PAI (sai do iframe e recarrega o Shell principal)
-        window.top.location.href = `../index.html`; 
+        //window.top.location.href = `../index.html`;
+        const contexto = getContexto();
+        if (contexto == "proftime") {
+            console.log("=============================================");
+            console.log(contexto);
+            console.log("=============================================");
+        }
+        
+        window.top.location.href = '../' + contexto;
+    
     } else {
         // Mantém o Menu e altera apenas o conteúdo do Iframe
+        const pagina = nomePagina.replace('.html', '');  
         window.location.href = `${pagina}.html`;
     }
 }

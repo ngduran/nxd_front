@@ -1,7 +1,28 @@
+export const getContexto = () => {
+    const path = window.location.pathname;
+    const isIframe = window.self !== window.top;
+    const referrerEfetivo = isIframe ? window.top.document.referrer : document.referrer;
+
+    const isPastoralPath = path.includes('pastoral');
+    const isPastoralReferrer = referrerEfetivo.includes('pastoral');
+
+    return (isPastoralPath || isPastoralReferrer) ? 'pastoral' : 'proftime';
+};
+
+export const gerenciarRedirecionamento = () => {
+    const path = window.location.pathname;
+    const isIframe = window.self !== window.top;
+    const isHome = path.includes('home.html');
+
+    if (!isIframe && !isHome) {
+        window.location.href = "../page/home.html";
+    } 
+};
+
 window.addEventListener('load', () => {
     const CONFIG = {
         paletas: {
-            professor: {
+            proftime: {
                 '--color-primary': '#1748AF',
                 '--color-accent': '#ffc346',
                 '--color-border': '#BCBDC1',
@@ -23,15 +44,15 @@ window.addEventListener('load', () => {
             }
         },
         labels: {
-            professor: "Prof Time",
+            proftime: "ProfTime",
             pastoral: "Pastoral"
         },
 
         // Mapeamento de itens para REMOVER do menu em cada contexto
         // O texto deve ser idêntico ao que está no HTML (case-sensitive)
         menuPermitido: {
-            professor : ["Login", "Minha Conta", "Instituição", "Horário", "Evento", "Calendário", "Planejamento"], // Itens que a Pastoral NÃO vê
-            pastoral: ["Login", "Minha Conta", "Cúria", "Paróquia", "Voluntário"] // Itens que o Professor NÃO vê
+            proftime : ["Login", "Minha Conta", "Instituição", "Horário", "Evento", "Calendário", "Planejamento", "Chave Testes"], // Itens que a Pastoral NÃO vê
+            pastoral: ["Login", "Minha Conta", "Cúria", "Paróquia", "Voluntário", "Chave Testes"] // Itens que o Professor NÃO vê
         }
     };
 
@@ -61,16 +82,6 @@ window.addEventListener('load', () => {
        
     };
 
-    const getContexto = () => {
-        const path = window.location.pathname;
-        const isIframe = window.self !== window.top;
-        const referrerEfetivo = isIframe ? window.top.document.referrer : document.referrer;
-
-        const isPastoralPath = path.includes('pastoral');
-        const isPastoralReferrer = referrerEfetivo.includes('pastoral');
-
-        return (isPastoralPath || isPastoralReferrer) ? 'pastoral' : 'professor';
-    };
 
     const aplicarCores = (contexto) => {
         const cores = CONFIG.paletas[contexto];
@@ -100,15 +111,15 @@ window.addEventListener('load', () => {
         }
     };
 
-    const gerenciarRedirecionamento = () => {
-        const path = window.location.pathname;
-        const isIframe = window.self !== window.top;
-        const isHome = path.includes('home.html');
+    // const gerenciarRedirecionamento = () => {
+    //     const path = window.location.pathname;
+    //     const isIframe = window.self !== window.top;
+    //     const isHome = path.includes('home.html');
 
-        if (!isIframe && !isHome) {
-            window.location.href = "../page/home.html";
-        }
-    };
+    //     if (!isIframe && !isHome) {
+    //         window.location.href = "../page/home.html";
+    //     }
+    // };
 
     // Execução da lógica organizada
     const contexto = getContexto();

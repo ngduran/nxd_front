@@ -1,13 +1,17 @@
-// export const ENV = {
-//     BASE_URL: "http://127.0.0.1:8080"
-// };
+
+
+// Busca a chave salva pelo testador. Se não existir, usa o ID padrão.
+const ID_NXD  = localStorage.getItem('NGROK_ID_NXD');
+const ID_AUCT = localStorage.getItem('NGROK_ID_AUCT');
+
+// --- 2. CHAVE DE CONTROLE ---
+// Alterne para 'false' para voltar ao localhost
+const USE_NGROK = true; 
+
+// --- 3. CONSTRUÇÃO DAS URLs ---
+const NGROK_URL = (id) => `https://${id}.ngrok-free.app`;
 
 export const ENV = {
-    PROFESSOR_API: "http://127.0.0.1:8080", // Seu back-end atual
-    AUCTORITAS_API: "http://127.0.0.1:8085"  // O novo back-end de identidade
+    NXD_API: USE_NGROK ? NGROK_URL(ID_NXD) : "http://127.0.0.1:8080",
+    AUCTORITAS_API: USE_NGROK ? NGROK_URL(ID_AUCT) : "http://127.0.0.1:8085",
 };
-
-
-
-//const BASE_URL = "http://127.0.0.1:8080";
-//const BASE_URL = "https://f481814cbe6c.ngrok-free.app";

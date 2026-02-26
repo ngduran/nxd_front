@@ -3,6 +3,7 @@ import { Mensagem } from "../utils/mensageiro.js";
 import { cadastrarUsuario } from "../services/api_service.js";
 import { capturarDadosFormulario, navegarPara, simplificarDados, validarFormulario } from "../utils/form-helper.js";
 import { inicializarI18n } from "../components/utils/i18n/i18n-helper.js";
+import { getContexto } from "../core/theme-engine.js";
 
 // 1. DICIONÁRIO DE INTERFACE ESTÁTICA (Textos que não são Web Components)
 const dicionarioConta = {
@@ -112,7 +113,13 @@ async function executarTarefasSalvar() {
         mensagemSucesso: "A Conta foi criada com sucesso!",
         sessionKey: "usuario_id", // O ID retornado será salvo aqui
         validacao: () => { }, 
-            onSuccess: () => navegarPara("home", true), // <--- Aqui resetamos o Shell principal
+            onSuccess: () => {
+                const contexto = getContexto();
+                console.log("=============================================");
+                console.log(contexto);
+                console.log("=============================================");
+                navegarPara("home", true) // <--- Aqui resetamos o Shell principal
+            },
     
             onError: async (msg) => {
                 // Exibe o erro de forma amigável usando seu componente
