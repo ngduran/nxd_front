@@ -1,22 +1,22 @@
 import { Base_Field } from '../../base/Base_Field.js';
 
-class Nome_Field extends Base_Field {
+class Data_Nascimento_Field extends Base_Field {
   
     static i18n = {
         pt: {
-            lbl_nome    : "Nome", 
-            ph_nome     : "Digite seu nome completo",
-            tp_lbl_nome : "Utilizado para sua identificação no sistema",
-            erro_1      : "O nome deve conter apenas letras.",       
-            erro_2      : "O nome deve ter pelo menos 3 letras."       
+            lbl_dt_nascimento    : "Data de Nasc", 
+            ph_dt_nascimento     : "Digite sua data de Nascimento",
+            tp_lbl_dt_nascimento : "Utilizado para calcular sua idade",
+            erro_1               : "A data de nascimento é obrigatória",       
+            erro_2               : "A data de nascimento não pode ser futura"       
         },
 
         es: {
-            lbl_nome    : "Nombre", 
-            ph_nome     : "Introduzca su nombre completo.",
-            tp_lbl_nome : "Se utiliza para su identificación en el sistema.",
-            erro_1      : "El nombre debe contener sólo letras.",
-            erro_2      : "El nombre debe tener al menos 3 letras."
+            lbl_dt_nascimento    : "Fecha de nac", 
+            ph_dt_nascimento     : "Introduzca su fecha de nacimiento.",
+            tp_lbl_dt_nascimento : "Se utiliza para calcular tu edad.",
+            erro_1               : "Se requiere fecha de nacimiento.",       
+            erro_2               : "La fecha de nacimiento no puede ser futura."
         }
     };
   
@@ -32,7 +32,7 @@ class Nome_Field extends Base_Field {
         return `<div class="campo">
                     <label class="field-label" for="${p.id}" data-translate ="${p.data_translate_label}">${p.label}</label>
                     <i class="${p.icon_question}" data-tooltip="${p.data_tooltip_balao}" data-translate ="${p.data_translate_tooltip}"></i>
-                    <input type="text" id="${p.id}" name="${p.name}" class="field-input" data-translate ="${p.data_translate_ph}" placeholder="${p.placeholder}" 
+                    <input type="date" id="${p.id}" name="${p.name}" class="field-input" data-translate ="${p.data_translate_ph}" placeholder="${p.placeholder}" 
                         autocomplete="off" ${p.is_required}>
                     </input>                    
                 </div>
@@ -75,4 +75,4 @@ class Nome_Field extends Base_Field {
 
 }
 
-customElements.define('nome-field', Nome_Field);
+customElements.define('data-nascimento-field', Data_Nascimento_Field);

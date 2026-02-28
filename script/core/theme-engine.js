@@ -52,11 +52,11 @@ window.addEventListener('load', () => {
         // O texto deve ser idêntico ao que está no HTML (case-sensitive)
         menuPermitido: {
             proftime : ["Login", "Minha Conta", "Instituição", "Horário", "Evento", "Calendário", "Planejamento", "Chave Testes"], // Itens que a Pastoral NÃO vê
-            pastoral: ["Login", "Minha Conta", "Cúria", "Paróquia", "Voluntário", "Chave Testes"] // Itens que o Professor NÃO vê
+            pastoral: ["Login", "Pessoa", "Cúria", "Paróquia", "Voluntário", "Chave Testes"] // Itens que o Professor NÃO vê
         }
     };
 
-    const tratarMenu = (contexto) => {
+    const tratarMenu = (contexto) => {        
         const itensPermitidos = CONFIG.menuPermitido[contexto];  
 
         if (!itensPermitidos) {           

@@ -1,6 +1,6 @@
 import { Base_Field } from '../../base/Base_Field.js';
 
-class Nome_Field extends Base_Field {
+class Input_Field extends Base_Field {
   
     static i18n = {
         pt: {
@@ -75,4 +75,4 @@ class Nome_Field extends Base_Field {
 
 }
 
-customElements.define('nome-field', Nome_Field);
+customElements.define('input-field', Input_Field);

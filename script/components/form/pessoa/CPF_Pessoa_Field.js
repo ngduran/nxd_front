@@ -1,22 +1,21 @@
 import { Base_Field } from '../../base/Base_Field.js';
 
-class Nome_Field extends Base_Field {
+class CPF_Pessoa_Field extends Base_Field {
   
     static i18n = {
         pt: {
-            lbl_nome    : "Nome", 
-            ph_nome     : "Digite seu nome completo",
-            tp_lbl_nome : "Utilizado para sua identificação no sistema",
-            erro_1      : "O nome deve conter apenas letras.",       
-            erro_2      : "O nome deve ter pelo menos 3 letras."       
+            lbl_cpf    : "CPF", 
+            ph_cpf     : "Digite seu cpf",
+            tp_lbl_cpf : "Utilizado para sua identificação no sistema",
+            erro_1     : "O cpf é inválido"   
+              
         },
 
         es: {
-            lbl_nome    : "Nombre", 
-            ph_nome     : "Introduzca su nombre completo.",
-            tp_lbl_nome : "Se utiliza para su identificación en el sistema.",
-            erro_1      : "El nombre debe contener sólo letras.",
-            erro_2      : "El nombre debe tener al menos 3 letras."
+            lbl_cpf    : "CPf", 
+            ph_cpf     : "Ingrese su CPF",
+            tp_lbl_cpf : "Utilizado para sua identificação no sistema",
+            erro_1     : "O cpf no es válido."
         }
     };
   
@@ -75,4 +74,4 @@ class Nome_Field extends Base_Field {
 
 }
 
-customElements.define('nome-field', Nome_Field);
+customElements.define('cpf-pessoa-field', CPF_Pessoa_Field);
