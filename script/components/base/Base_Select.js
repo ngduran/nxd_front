@@ -55,7 +55,20 @@ export class Base_Select extends Base_Field {
      * MÉDITO NOVO: Responsável por gerar as tags <option>.
      * Pode ser sobrescrito pelos componentes filhos para buscar dados de APIs.
      */
-    renderOptions(p) {
+    renderOptions(p) {         
+        const lang = sessionStorage.getItem('official_language') || 'pt';
+        const tipo = this.getAttribute('validation_type');
+        
+        // Busca a lista de opções no dicionário escopado
+        const config = this.constructor.i18n[lang]?.[tipo];
+
+        // CORREÇÃO: Verifica tanto 'optionsList' quanto 'options'
+        if (config) {
+            this.optionsList = config.optionsList || config.options || [];
+        } else {
+            this.optionsList = this.optionsList || []; 
+        }
+
         // 1. Verifica se a classe filha (ex: Instituicao_Select) definiu a lista
         const listaParaRenderizar = this.optionsList || [];
 

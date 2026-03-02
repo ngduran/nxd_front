@@ -116,8 +116,8 @@ body {
 }
 
 /* No desktop, define as proporções */
-.col-8 {
-    flex: 8 1 0; /* Cresce 8 vezes mais, pode encolher, base começa em 0 */
+.col-0 {
+    flex: 1 1 0;
 }
 
 .col-2 {
@@ -125,12 +125,24 @@ body {
     //max-width: 8rem; /* Nos menores dispositivos diminui o componente em relação aos outros */
 }
 
+.col-3 {
+    flex: 3 1 0;
+}
+
+.col-4 {
+    flex: 4 1 0;
+}
+
 .col-5 {
     flex: 5 1 0; /* Cresce 2 vezes mais, pode encolher, base começa em 0 */
 }
 
-.col-0 {
-    flex: 1 1 0;
+.col-6 {
+    flex: 6 1 0; /* Cresce 2 vezes mais, pode encolher, base começa em 0 */
+}
+
+.col-8 {
+    flex: 8 1 0; /* Cresce 8 vezes mais, pode encolher, base começa em 0 */
 }
 
 .col-centro {
@@ -206,9 +218,18 @@ input[type="time"]::-webkit-calendar-picker-indicator {
         flex: 1 1 auto;
     }
 
+    .col-6 {
+        flex: 1 1 auto;
+    }
+
     .col-8, .col-2 {
         flex: 1 1 100%;
     }
+
+    .col-3, .col-4 {
+        flex: 1 1 100%;
+    }
+
 }
 
 @supports (-webkit-touch-callout: none) {
@@ -218,8 +239,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 @media screen and (max-width: 720px) {
-    .col-8, .col-2, .col-5 {
+    .col-8, .col-2, .col-5, .col-6 {
         flex: 1 1 100%; /* No mobile, ambos forçam 100% da largura */
+    }
+
+    .col-3, .col-4 {
+        flex: 1 1 100%;
     }
 
     /* .col-2 {

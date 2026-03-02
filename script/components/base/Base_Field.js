@@ -152,9 +152,15 @@ export class Base_Field extends HTMLElement {
 
 
 
-    translate() {
+    translate() {       
         const lang = sessionStorage.getItem('official_language') || 'pt';
-        const dicionario = this.constructor.i18n?.[lang];
+        const tipo = this.getAttribute('validation_type');
+        let dicionario = this.constructor.i18n?.[lang];
+        
+        // 2. SE o dicionário tem subpastas (como 'nome' ou 'cpf'), entra nela
+        if (dicionario && tipo && dicionario[tipo]) {
+            dicionario = dicionario[tipo];
+        }
 
         if (!dicionario) return;
 

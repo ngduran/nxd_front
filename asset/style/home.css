@@ -77,6 +77,15 @@ body {
     border-bottom: 1px solid rgba(255,255,255,0.1); 
 }
 
+.logo-img {
+    max-width: 80%; /* Impede que a logo fique maior que o sidebar */
+    max-height: 100px; /* Define uma altura máxima opcional */
+    margin-bottom: 10px; /* Cria um espaço entre a logo e o nome "Pastoral" */
+    display: block; /* Ajuda na centralização */
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .nav-links { 
     list-style: none; 
     padding-top: 20px; 

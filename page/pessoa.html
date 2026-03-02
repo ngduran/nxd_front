@@ -33,102 +33,385 @@
                 </div>
             </div>
         </div>
+        
+        <section id="step-1" class="form-step">
+
+            <div class="field-container">
+                <div class="field-group col-8">
+                    <div class="field-col">
+                        <input-field
+                            scope                  = "pessoa"
+                            validation_type        = "nome"
+                            field_type             = "text"
+                            id                     = "nome"
+                            name                   = "nome"                                
+                            data_translate_label   = "lbl_nome"
+                            data_translate_ph      = "ph_nome"
+                            data_translate_tooltip = "tp_lbl_nome"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            >
+                        </input-field>
+                    </div>
+                </div>
     
-        <div class="field-container">
-            <div class="field-group col-8">
-                 <div class="field-col">
-                    <nome-pessoa-field
-                        scope                  = "pessoa"
-                        id                     = "nome"
-                        name                   = "nome"                                
-                        data_translate_label   = "lbl_nome"
-                        data_translate_ph      = "ph_nome"
-                        data_translate_tooltip = "tp_lbl_nome"
-                        icon_question          = "fa-solid fa-circle-question info-question"
+                <div class="field-group col-2">
+                     <div class="field-col">
+                        <input-field
+                            scope                  = "pessoa"
+                            validation_type        = "dt_nascimento"
+                            field_type             = "date"                       
+                            id                     = "dt_nascimento"
+                            name                   = "dt_nascimento"                                
+                            data_translate_label   = "lbl_dt_nascimento"
+                            data_translate_ph      = "ph_dt_nascimento"
+                            data_translate_tooltip = "tp_lbl_dt_nascimento"
+                            icon_question          = "fa-solid fa-circle-question info-question"
                         >
-                    </nome-pessoa-field>
-                 </div>
+                        </input-field>
+                     </div>
+                </div>
+    
+            </div>
+    
+            <div class="field-container">
+                <div class="field-group col-2">
+                     <div class="field-col">
+                        <input-field
+                            scope                  = "pessoa"
+                            validation_type        = "cpf"
+                            field_type             = "text"
+                            id                     = "cpf"
+                            name                   = "cpf"                                
+                            data_translate_label   = "lbl_cpf"
+                            data_translate_ph      = "ph_cpf"
+                            data_translate_tooltip = "tp_lbl_cpf"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            >
+                        </input-field>
+                     </div>
+                </div>
+    
+                <div class="field-group col-2">
+                     <div class="field-col">
+                        <input-field
+                            scope                  = "pessoa"
+                            validation_type        = "rg"
+                            field_type             = "text"
+                            id                     = "rg"
+                            name                   = "rg"                                
+                            data_translate_label   = "lbl_rg"
+                            data_translate_ph      = "ph_rg"
+                            data_translate_tooltip = "tp_lbl_rg"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            >
+                        </input-field>
+                     </div>
+                </div>
+    
+                <div class="field-group col-2">
+                     <div class="field-col">
+                        <input-field
+                            scope                  = "pessoa"
+                            validation_type        = "telefone"
+                            field_type             = "text"
+                            id                     = "telefone"
+                            name                   = "telefone"                                
+                            data_translate_label   = "lbl_telefone"
+                            data_translate_ph      = "ph_telefone"
+                            data_translate_tooltip = "tp_lbl_telefone"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            >
+                        </input-field>
+                     </div>
+                </div>
+    
+                <div class="field-group col-2">
+                     <div class="field-col">
+                        <select-field
+                            scope                  = "pessoa"
+                            validation_type        = "estado_civil"
+                            field_type             = "text"
+                            id                     = "estado_civil"
+                            name                   = "estado_civil"                                
+                            data_translate_label   = "lbl_estado_civil"
+                            data_translate_ph      = "ph_estado_civil"
+                            data_translate_op      = "ph_estado_civil_op0" 
+                            data_translate_tooltip = "tp_lbl_estado_civil"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            >
+                        </select-field>
+                     </div>
+                </div>
+    
+            </div>
+    
+            <div class="field-container">
+                <div class="field-group col-4">
+                     <div class="field-col">
+                        <input-field
+                            scope                  = "pessoa"
+                            validation_type        = "email"
+                            field_type             = "text"
+                            id                     = "email"
+                            name                   = "email"                                
+                            data_translate_label   = "lbl_email"
+                            data_translate_ph      = "ph_email"
+                            data_translate_tooltip = "tp_lbl_email"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            >
+                        </input-field>
+                     </div>
+                </div>
+    
+                <div class="field-group col-3">
+                     <div class="field-col">
+                        <input-field
+                            scope                  = "pessoa"
+                            validation_type        = "profissao"
+                            field_type             = "text"
+                            id                     = "profissao"
+                            name                   = "profissao"                                
+                            data_translate_label   = "lbl_profissao"
+                            data_translate_ph      = "ph_profissao"
+                            data_translate_tooltip = "tp_lbl_profissao"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            >
+                        </input-field>
+                     </div>
+                </div>
+    
+                <div class="field-group col-3">
+                     <div class="field-col">
+                        <select-field
+                            scope                  = "pessoa"
+                            validation_type        = "escolaridade"
+                            field_type             = "text"
+                            id                     = "escolaridade"
+                            name                   = "escolaridade"                                
+                            data_translate_label   = "lbl_escolaridade"
+                            data_translate_ph      = "ph_escolaridade"
+                            data_translate_op      = "ph_escolaridade_op0"
+                            data_translate_tooltip = "tp_lbl_escolaridade"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            >
+                        </select-field>
+                     </div>
+                </div>          
+    
+            </div>
+    
+    
+            <div class="field-container">
+                <div class="field-group col-0">
+                     <div class="field-col">
+                        <input-field
+                            scope                  = "pessoa"
+                            validation_type        = "endereco"
+                            field_type             = "text"
+                            id                     = "endereco"
+                            name                   = "endereco"                                
+                            data_translate_label   = "lbl_endereco"
+                            data_translate_ph      = "ph_endereco"
+                            data_translate_tooltip = "tp_lbl_endereco"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            >
+                        </input-field>
+                     </div>
+                </div>         
             </div>
 
-            <div class="field-group col-2">
-                 <div class="field-col">
-                    <data-nascimento-field
-                        scope                  = "pessoa"
-                        id                     = "dt_nascimento"
-                        name                   = "dt_nascimento"                                
-                        data_translate_label   = "lbl_dt_nascimento"
-                        data_translate_ph      = "ph_dt_nascimento"
-                        data_translate_tooltip = "tp_lbl_dt-nascimento"
-                        icon_question          = "fa-solid fa-circle-question info-question"
+        </section>
+        
+
+        <!-- <section id="step-2" class="form-step"> -->
+
+            <div class="field-container">
+                <div class="field-group col-2">
+                    <div class="field-col">
+                        <select-field
+                            scope                  = "pessoa"
+                            validation_type        = "batizado"
+                            field_type             = "text"
+                            id                     = "batizado"
+                            name                   = "batizado"                                
+                            data_translate_label   = "lbl_batizado"
+                            data_translate_ph      = "ph_batizado"
+                            data_translate_op      = "ph_batizado_op0" 
+                            data_translate_tooltip = "tp_lbl_batizado"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            >
+                        </select-field>
+                    </div>
+                </div>
+    
+                <div class="field-group col-2">
+                     <div class="field-col">
+                        <input-field
+                            scope                  = "pessoa"
+                            validation_type        = "dt_batismo"
+                            field_type             = "date"                       
+                            id                     = "dt_batismo"
+                            name                   = "dt_batismo"                                
+                            data_translate_label   = "lbl_dt_batismo"
+                            data_translate_ph      = "ph_dt_batismo"
+                            data_translate_tooltip = "tp_lbl_dt_batismo"
+                            icon_question          = "fa-solid fa-circle-question info-question"
                         >
-                 </data-nascimento-field>
-                 </div>
+                        </input-field>
+                     </div>
+                </div>
+
+                <div class="field-group col-6">
+                     <div class="field-col">
+                        <input-field
+                            scope                  = "pessoa"
+                            validation_type        = "local_batismo"
+                            field_type             = "text"                       
+                            id                     = "local_batismo"
+                            name                   = "local_batismo"                                
+                            data_translate_label   = "lbl_local_batismo"
+                            data_translate_ph      = "ph_local_batismo"
+                            data_translate_tooltip = "tp_lbl_local_batismo"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                        >
+                        </input-field>
+                     </div>
+                </div>
+    
             </div>
 
-        </div>
 
-        <div class="field-container">
-            <div class="field-group col-2">
-                 <div class="field-col">
-                    <cpf-pessoa-field
-                        scope                  = "pessoa"
-                        id                     = "cpf"
-                        name                   = "cpf"                                
-                        data_translate_label   = "lbl_cpf"
-                        data_translate_ph      = "ph_cpf"
-                        data_translate_tooltip = "tp_lbl_cpf"
-                        icon_question          = "fa-solid fa-circle-question info-question"
+            <div class="field-container">
+                <div class="field-group col-2">
+                    <div class="field-col">
+                        <select-field
+                            scope                  = "pessoa"
+                            validation_type        = "crisma"
+                            field_type             = "text"
+                            id                     = "crisma"
+                            name                   = "crisma"                                
+                            data_translate_label   = "lbl_crisma"
+                            data_translate_ph      = "ph_crisma"
+                            data_translate_op      = "ph_crisma_op0" 
+                            data_translate_tooltip = "tp_lbl_crisma"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            >
+                        </select-field>
+                    </div>
+                </div>
+    
+                <div class="field-group col-2">
+                     <div class="field-col">
+                        <input-field
+                            scope                  = "pessoa"
+                            validation_type        = "dt_crisma"
+                            field_type             = "date"                       
+                            id                     = "dt_crisma"
+                            name                   = "dt_crisma"                                
+                            data_translate_label   = "lbl_dt_crisma"
+                            data_translate_ph      = "ph_dt_crisma"
+                            data_translate_tooltip = "tp_lbl_dt_crisma"
+                            icon_question          = "fa-solid fa-circle-question info-question"
                         >
-                    </cpf-pessoa-field>
-                 </div>
+                        </input-field>
+                     </div>
+                </div>
+
+                <div class="field-group col-6">
+                     <div class="field-col">
+                        <input-field
+                            scope                  = "pessoa"
+                            validation_type        = "local_crisma"
+                            field_type             = "text"                       
+                            id                     = "local_crisma"
+                            name                   = "local_crisma"                                
+                            data_translate_label   = "lbl_local_crisma"
+                            data_translate_ph      = "ph_local_crisma"
+                            data_translate_tooltip = "tp_lbl_local_crisma"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                        >
+                        </input-field>
+                     </div>
+                </div>
+    
             </div>
 
-            <div class="field-group col-2">
-                 <div class="field-col">
-                    <rg-pessoa-field
-                        scope                  = "pessoa"
-                        id                     = "dt_nascimento"
-                        name                   = "dt_nascimento"                                
-                        data_translate_label   = "lbl_dt_nascimento"
-                        data_translate_ph      = "ph_dt_nascimento"
-                        data_translate_tooltip = "tp_lbl_dt-nascimento"
-                        icon_question          = "fa-solid fa-circle-question info-question"
+            <div class="field-container">
+                <div class="field-group col-2">
+                    <div class="field-col">
+                        <select-field
+                            scope                  = "pessoa"
+                            validation_type        = "pri_comunhao"
+                            field_type             = "text"
+                            id                     = "pri_comunhao"
+                            name                   = "pri_comunhao"                                
+                            data_translate_label   = "lbl_pri_comunhao"
+                            data_translate_ph      = "ph_pri_comunhao"
+                            data_translate_op      = "ph_pri_comunhao_op0" 
+                            data_translate_tooltip = "tp_lbl_pri_comunhao"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                            >
+                        </select-field>
+                    </div>
+                </div>
+    
+                <div class="field-group col-2">
+                     <div class="field-col">
+                        <input-field
+                            scope                  = "pessoa"
+                            validation_type        = "dt_pri_comunhao"
+                            field_type             = "date"                       
+                            id                     = "dt_pri_comunhao"
+                            name                   = "dt_pri_comunhao"                                
+                            data_translate_label   = "lbl_dt_pri_comunhao"
+                            data_translate_ph      = "ph_dt_pri_comunhao"
+                            data_translate_tooltip = "tp_lbl_dt_pri_comunhao"
+                            icon_question          = "fa-solid fa-circle-question info-question"
                         >
-                    </rg-pessoa-field>
-                 </div>
+                        </input-field>
+                     </div>
+                </div>
+
+                <div class="field-group col-6">
+                     <div class="field-col">
+                        <input-field
+                            scope                  = "pessoa"
+                            validation_type        = "local_pri_comunhao"
+                            field_type             = "text"                       
+                            id                     = "local_pri_comunhao"
+                            name                   = "local_pri_comunhao"                                
+                            data_translate_label   = "lbl_local_pri_comunhao"
+                            data_translate_ph      = "ph_local_pri_comunhao"
+                            data_translate_tooltip = "tp_lbl_local_pri_comunhao"
+                            icon_question          = "fa-solid fa-circle-question info-question"
+                        >
+                        </input-field>
+                     </div>
+                </div>
+    
             </div>
 
-            <div class="field-group col-2">
-                 <div class="field-col">
-                    <telefone-pessoa-field
-                        scope                  = "pessoa"
-                        id                     = "dt_nascimento"
-                        name                   = "dt_nascimento"                                
-                        data_translate_label   = "lbl_dt_nascimento"
-                        data_translate_ph      = "ph_dt_nascimento"
-                        data_translate_tooltip = "tp_lbl_dt-nascimento"
-                        icon_question          = "fa-solid fa-circle-question info-question"
-                        >
-                    </telefone-pessoa-field>
-                 </div>
-            </div>
 
-            <div class="field-group col-2">
-                 <div class="field-col">
-                    <email-pessoa-field
-                        scope                  = "pessoa"
-                        id                     = "dt_nascimento"
-                        name                   = "dt_nascimento"                                
-                        data_translate_label   = "lbl_dt_nascimento"
-                        data_translate_ph      = "ph_dt_nascimento"
-                        data_translate_tooltip = "tp_lbl_dt-nascimento"
-                        icon_question          = "fa-solid fa-circle-question info-question"
-                        >
-                    </email-pessoa-field>
-                 </div>
-            </div>
 
-        </div>
+
+
+
+        <!-- </section> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -157,9 +440,10 @@
     
     <script type="module" src="../script/core/theme-engine.js"></script>
 
-    <script type="module" src="../script/components/form/pessoa/Nome_Pessoa_Field.js"></script>
-    <script type="module" src="../script/components/form/pessoa/Data_Nascimento-Pessoa_Field.js"></script>
-    <script type="module" src="../script/components/form/pessoa/CPF_Pessoa_Field.js"></script>
+    <script type="module" src="../script/components/form/pessoa/Input_Field.js"></script>
+    <script type="module" src="../script/components/form/pessoa/Select_Field.js"></script>
+    <!-- <script type="module" src="../script/components/form/pessoa/Data_Nascimento-Pessoa_Field.js"></script>
+    <script type="module" src="../script/components/form/pessoa/CPF_Pessoa_Field.js"></script> -->
    
         
     <script type="module" src="../script/pages/pessoa.js"></script>
