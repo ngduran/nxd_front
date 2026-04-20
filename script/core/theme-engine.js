@@ -58,8 +58,8 @@ window.addEventListener('load', () => {
 
         assets: {
             proftime: {
-                favicon: '../assets/img/proftime-favicon.ico',
-                logo: '../assets/img/proftime-logo.png'
+                favicon: '../asset/icon/favicon_sem_fundo_2_proftime.ico',
+                logo: '../asset/image/logo_sem_fundo_2_proftime.png'
             },
             pastoral: {
                 favicon: '../asset/icon/pastoral-favicon.ico',

@@ -6,7 +6,7 @@ const ID_AUCT = localStorage.getItem('NGROK_ID_AUCT');
 
 // --- 2. CHAVE DE CONTROLE ---
 // Alterne para 'false' para voltar ao localhost
-const USE_NGROK = true; 
+const USE_NGROK = false; 
 
 // --- 3. CONSTRUÇÃO DAS URLs ---
 const NGROK_URL = (id) => `https://${id}.ngrok-free.app`;
