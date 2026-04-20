@@ -105,6 +105,15 @@ async function executarTarefasSalvar() {
     // 2. Transforma em um DTO simples que o Spring entende
     const dadosParaAPI = simplificarDados(dadosConta);
 
+    // --- INJEÇÃO DE CONTEXTO E TOKEN (Regra de Negócio) ---
+    const contextoAtual = getContexto();
+    dadosParaAPI.origem = contextoAtual.toUpperCase();
+
+    // Se for pastoral, usamos a getToken(). Se for proftime ou não houver token, fica null.
+    dadosParaAPI.tokenConvite = (contextoAtual === 'pastoral') ? getToken() : null;
+    // ------------------------------------------------------------------
+
+
     await executarOperacao({
         idBotao: 'cadastrarBtn',
         textoAguarde: 'Salvando...',

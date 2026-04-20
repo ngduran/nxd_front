@@ -9,6 +9,15 @@ export const getContexto = () => {
     return (isPastoralPath || isPastoralReferrer) ? 'pastoral' : 'proftime';
 };
 
+/**
+ * Captura o token de convite da URL, caso exista.
+ * @returns {string|null} O token encontrado ou null.
+ */
+export const getToken = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('token'); // Retorna o valor ou null automaticamente
+};
+
 export const gerenciarRedirecionamento = () => {
     const path = window.location.pathname;
     const isIframe = window.self !== window.top;
