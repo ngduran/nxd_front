@@ -65,6 +65,15 @@ window.addEventListener('load', () => {
             pastoral: ["Login", "Pessoa", "Cúria", "Paróquia", "Voluntário", "Chave Testes"] // Itens que o Professor NÃO vê
         },
 
+        // 2. NOVA LOGA: FILTRO POR PERFIL (Baseado na Role do Backend)
+        // Aqui listamos explicitamente quais itens EXTRAS cada perfil tem direito de ver.
+        menuPorPerfil: {
+            'ROLE_ADMIN': ["Convite", "Configurações Globais", "Chave Testes"], 
+            'ROLE_MEMBRO': ["Meus Dados", "Minhas Atividades"],
+            'ROLE_PROFESSOR': ["Minhas Turmas", "Diário de Classe"],
+            'ROLE_USUARIO': [] // Perfil básico inicial, não ganha itens extras por padrão
+        },
+
         assets: {
             proftime: {
                 favicon: '../asset/icon/favicon_sem_fundo_2_proftime.ico',
@@ -80,7 +89,7 @@ window.addEventListener('load', () => {
 
     };
 
-    const tratarMenu = (contexto) => {        
+    const tratarMenuContexto = (contexto) => {        
         const itensPermitidos = CONFIG.menuPermitido[contexto];  
 
         if (!itensPermitidos) {           
@@ -106,6 +115,36 @@ window.addEventListener('load', () => {
        
     };
 
+    // NOVA FUNÇÃO: Remove itens restritos se o usuário não tiver o perfil correto
+    const tratarMenuPorPerfil = () => {
+        // Recupera o perfil salvo no localStorage após o login (Ex: 'ROLE_ADMIN')
+        // Se não houver nada, tratamos como string vazia ou perfil básico 'ROLE_USUARIO'
+        const perfilUsuario = localStorage.getItem('user_role') || 'ROLE_USUARIO';
+
+        // Descobre quais itens são liberados especificamente para esse perfil
+        const itensLiberadosPeloPerfil = CONFIG.menuPorPerfil[perfilUsuario] || [];
+
+        // Mapeia TODOS os itens que exigem alguma permissão especial
+        // (Basicamente junta todos os arrays de 'menuPorPerfil' para saber o que é protegido)
+        const todosItensProtegidos = Object.values(CONFIG.menuPorPerfil).flat();
+
+        const linksMenu = document.querySelectorAll('.nav-links a');
+
+        linksMenu.forEach((link) => {
+            const textoItem = link.innerText.trim();
+
+            // Se o item do menu é um item protegido/restrito...
+            if (todosItensProtegidos.includes(textoItem)) {
+                // ...mas o perfil atual do usuário NÃO tem essa liberação, removemos o item.
+                if (!itensLiberadosPeloPerfil.includes(textoItem)) {
+                    const liContainer = link.closest('li');
+                    if (liContainer) {
+                        liContainer.remove();
+                    }
+                }
+            }
+        });
+    };
 
     const aplicarCores = (contexto) => {
         const cores = CONFIG.paletas[contexto];
@@ -189,6 +228,9 @@ window.addEventListener('load', () => {
     aplicarCores(contexto);
     aplicarIdentidadeVisual(contexto);
     aplicarAssets(contexto); // <--- Adicione esta linha
-    tratarMenu(contexto); // Nova função para tratar os itens
+    
+    tratarMenuContexto(contexto); // 1º Aplica o filtro de escopo (Pastoral ou ProfTime)
+    tratarMenuPorPerfil();        // 2º Aplica o filtro fino de permissões do usuário logado
+
     gerenciarRedirecionamento();
 });

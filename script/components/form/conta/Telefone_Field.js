@@ -7,14 +7,14 @@ class Telefone_Field extends Base_Field {
         pt: {
             lbl_telefone    : "Telefone", 
             ph_telefone     : "Adicione um número de telefone",
-            tp_lbl_telefone : "Contato com a instituião (Escola)",
+            tp_lbl_telefone : "Contato para que receba mensagens importantes do grupo",
             erro            : "Por favor, digite um número de telefone válido"       
         },
 
         es: {
             lbl_telefone    : "Teléfono", 
             ph_telefone     : "Agregar un número de teléfono",
-            tp_lbl_telefone : "Contactar con la institución (Escuela)",
+            tp_lbl_telefone : "Contáctanos para recibir mensajes importantes del grupo.",
             erro            : "Por favor, introduzca un número de teléfono válido."
         }
     };

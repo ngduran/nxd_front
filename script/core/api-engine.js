@@ -47,8 +47,10 @@ export async function executarOperacao({
             // Só salva no SessionManager se uma sessionKey foi fornecida
             if (sessionKey) {
                 const idParaSalvar = resultado?.uuid || resultado?.id;
+                const perfil = resultado?.perfil;
                 if (idParaSalvar) { 
-                    SessionManager.salvar(sessionKey, idParaSalvar); 
+                    SessionManager.salvar(sessionKey, idParaSalvar);
+                    SessionManager.salvar(sessionKey, perfil); 
                 }
             }
            
