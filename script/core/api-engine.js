@@ -31,9 +31,16 @@ export async function executarOperacao({
         //bloquearButton(idBotao, textoAguarde);
 
         // Busca a tradução dinamicamente
-        bloquearButton(idBotao, getTranslation(keyTextoAguarde));
-       
+        //bloquearButton(idBotao, getTranslation(keyTextoAguarde));
+
+       // --- ALTERAÇÃO CIRÚRGICA ---
+        // Usa o texto traduzido enviado em 'textoAguarde'. 
+        // Se por acaso vier vazio, tenta usar o 'keyTextoAguarde' ou uma string padrão.
+        const textoFinal = textoAguarde || (keyTextoAguarde ? keyTextoAguarde : "Aguarde...");
         
+        bloquearButton(idBotao, textoFinal);
+        
+
         // 2. Chamada da API
         const response = await apiCall(dados);
        

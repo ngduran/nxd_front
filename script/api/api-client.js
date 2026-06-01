@@ -15,6 +15,7 @@ function obterHeadersBase() {
 }
 
 export async function apiFetch(endpoint, dados) {
+    console.log("A chamada a api --> " + endpoint.path);
     try {
         const response = await fetch(endpoint.path, {
             method: endpoint.method,
