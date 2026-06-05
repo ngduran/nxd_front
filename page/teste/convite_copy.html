@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfTime - Gerenciar Convites</title>
+    <link rel="stylesheet" href="../asset/style/base/base-form.css">
+    <link rel="stylesheet" href="../asset/style/dashboard-convites.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <form id="inviteForm" class="form-container" autocomplete="off">
+
+            <div class="field-container">
+                <div class="field-group col-0">
+                    <div class="field-col">
+                        <h1 class="header-title" data-translate="lbl_titulo_convites">Gestão de Convites</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-container">
+                <div class="field-group col-0">
+                    <div class="field-col posicao-end">
+                        <button type="button" id="btn-pt" class="lang-btn active">
+                            <img class="icon-flag" src="../asset/icon/bandeira-do-brasil.png" alt="Bandeira do Brasil">
+                        </button>                   
+                        <button type="button" id="btn-es" class="lang-btn">
+                            <img class="icon-flag" src="../asset/icon/paraguai.png" alt="Bandeira do Paraguai">
+                        </button> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-container">
+                <div class="field-group col-0">
+                    <div class="field-col">
+                        <label for="selectUser" data-translate="lbl_selecionar_usuario">Selecionar Usuário</label>
+                        <select id="selectUser" name="usuario" required class="dashboard-input">
+                            <option value="" disabled selected data-translate="ph_selecionar_usuario">Escolha uma pessoa da lista...</option>
+                            <option value="1">João Silva</option>
+                            <option value="2">Maria Oliveira</option>
+                            <option value="3">Carlos Carlos</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-container">
+                <div class="field-group col-0">
+                    <div class="field-col">
+                        <label for="selectRole" data-translate="lbl_selecionar_cargo">Cargo / Função</label>
+                        <select id="selectRole" name="cargo" required class="dashboard-input">
+                            <option value="" disabled selected data-translate="ph_selecionar_cargo">Defina o cargo para o link...</option>
+                            <option value="professor" data-translate="opt_professor">Professor</option>
+                            <option value="coordenador" data-translate="opt_coordenador">Coordenador</option>
+                            <option value="administrador" data-translate="opt_administrador">Administrador</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-container">
+                <div class="field-group col-0">
+                    <div class="field-col">
+                        <button type="button" id="btnGerarLink" class="cta-button" data-translate="lbl_btn_gerar_link">Gerar Link de Convite</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="form-container table-container-wrapper">
+            <div class="field-container">
+                <div class="field-group col-0">
+                    <div class="field-col">
+                        <h2 class="sub-header-title" data-translate="lbl_sub_links_ativos">Links Ativos / Pendentes</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th data-translate="th_nome">Nome</th>
+                            <th data-translate="th_cargo">Cargo</th>
+                            <th data-translate="th_status">Status</th>
+                            <th data-translate="th_acoes">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>João Silva</td>
+                            <td>Professor</td>
+                            <td><span class="status-badge badge-pendente" data-translate="status_pendente">Pendente</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button type="button" class="btn-action btn-copy" title="Copiar Link" data-token="tk_859a1fbc3">
+                                        <i class="fa-solid fa-copy"></i>
+                                    </button>
+                                    <button type="button" class="btn-action btn-invalidate" title="Invalidar Link">
+                                        <i class="fa-solid fa-ban"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Maria Oliveira</td>
+                            <td>Coordenador</td>
+                            <td><span class="status-badge badge-invalidado" data-translate="status_invalidado">Invalidado</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button type="button" class="btn-action btn-disabled" disabled>
+                                        <i class="fa-solid fa-ban"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <script type="module" src="../script/core/theme-engine.js"></script>
+    <script type="module" src="../script/pages/dashboard-convites.js"></script>
+</body>
+</html>

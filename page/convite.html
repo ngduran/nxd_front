@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastoral - Convite</title>
+    <link rel="stylesheet" href="../asset/style/base/base-form.css">
+    <link rel="stylesheet" href="../asset/style/convite.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <form id="conviteForm" class="form-container" autocomplete="off">
+
+        <div class="field-container">
+            <div class="field-group col-0">
+                <div class="field-col">
+                    <h1 class="header-title" data-translate="lbl_titulo">Convite</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="field-container">
+            <div class="field-group col-0">
+                <div class="field-col posicao-end">
+                    <button type="button" id="btn-pt" class="lang-btn active">
+                            <img class="icon-flag" src="../asset/icon/bandeira-do-brasil.png" alt="Bandeira do Brasil">
+                        </button>                   
+                        <button type="button" id="btn-es" class="lang-btn">
+                            <img class="icon-flag" src="../asset/icon/paraguai.png" alt="Bandeira do Paraguai">
+                        </button> 
+                </div>
+            </div>
+        </div>
+
+
+        <div class="field-container">
+
+            <div class="field-group col-4">
+                <div class="field-col">
+                    <pessoa-select
+                        scope                  = "convite" 
+                        id                     = "pessoa"
+                        name                   = "pessoa"                                
+                        data_translate_label   = "lbl_pessoa"
+                        data_translate_ph      = "ph_pessoa"
+                        data_translate_op      = "ph_pessoa_op0" 
+                        data_translate_tooltip = "tp_lbl_pessoa"
+                        icon_question          = "fa-solid fa-circle-question info-question"
+                    >
+                    </pessoa-select>
+                </div>
+            </div>
+
+            <div class="field-group col-4">
+                <div class="field-col">
+                    <cargo-select
+                        scope                  = "convite" 
+                        id                     = "cargo"
+                        name                   = "cargo"                                
+                        data_translate_label   = "lbl_cargo"
+                        data_translate_ph      = "ph_cargo"
+                        data_translate_op      = "ph_cargo_op0" 
+                        data_translate_tooltip = "tp_lbl_cargo"
+                        icon_question          = "fa-solid fa-circle-question info-question"
+                    >
+                    </cargo-select>
+                </div>
+            </div>
+
+            <div class="field-group col-2">
+                <div class="field-col"></div>
+                <button type="button" id="adicionarBtn" class="cta-button btn-add">Gerar Link Convite</button>
+            </div>
+        
+        </div>
+
+
+        <div class="field-container">
+
+            <div class="gerencial-table-container">
+                
+                <div class="table-header" aria-hidden="true">
+                    <div class="header-cell col-nome">NOME</div>
+                    <div class="header-cell col-cargo">CARGO</div>
+                    <div class="header-cell col-token">TOKEN / LINK</div>
+                    <div class="header-cell col-data">DATA</div>
+                    <div class="header-cell col-status">STATUS</div>
+                    <div class="header-cell col-acoes">AÇÕES</div>
+                </div>
+
+                <div class="table-body">
+
+                    <div class="table-row status-active">
+                        <div class="row-cell col-nome">
+                            <div class="avatar avatar-ma">MA</div>
+                            <span class="user-name">Marcos Almeida</span>
+                        </div>
+                        <div class="row-cell col-cargo">
+                            <span class="cargo-title">Coordenador</span>
+                        </div>
+                        <div class="row-cell col-token">
+                            <label class="mobile-label">LINK DE CONVITE</label>
+                            <div class="link-input-wrapper">
+                                <span class="link-icon">🔗</span>
+                                <input type="text" class="input-link" value="https://proftime.com/cadastro?token=ma..." readonly>
+                            </div>
+                        </div>
+                        <div class="row-cell col-data">
+                            <label class="mobile-label">DATA DE CRIAÇÃO</label>
+                            <span class="data-text">28/05/2025</span>
+                        </div>
+                        <div class="row-cell col-status">
+                            <span class="badge status-aceito">Aceito</span>
+                        </div>
+                        <div class="row-cell col-acoes">
+                            <button class="btn btn-copiar" title="Copiar Link">
+                                <span class="btn-icon">📋</span> Copiar Link
+                            </button>
+                            <button class="btn btn-invalidar" title="Invalidar Link">
+                                <span class="btn-icon">🚫</span> Invalidar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-row status-pending">
+                        <div class="row-cell col-nome">
+                            <div class="avatar avatar-hc">HC</div>
+                            <span class="user-name">Helena Costa</span>
+                        </div>
+                        <div class="row-cell col-cargo">
+                            <span class="cargo-title">Professora</span>
+                        </div>
+                        <div class="row-cell col-token">
+                            <label class="mobile-label">LINK DE CONVITE</label>
+                            <div class="link-input-wrapper">
+                                <span class="link-icon">🔗</span>
+                                <input type="text" class="input-link" value="https://proftime.com/cadastro?token=hc..." readonly>
+                            </div>
+                        </div>
+                        <div class="row-cell col-data">
+                            <label class="mobile-label">DATA DE CRIAÇÃO</label>
+                            <span class="data-text">30/05/2025</span>
+                        </div>
+                        <div class="row-cell col-status">
+                            <span class="badge status-pendente">Pendente</span>
+                        </div>
+                        <div class="row-cell col-acoes">
+                            <button class="btn btn-copiar" title="Copiar Link">
+                                <span class="btn-icon">📋</span> Copiar Link
+                            </button>
+                            <button class="btn btn-invalidar" title="Invalidar Link">
+                                <span class="btn-icon">🚫</span> Invalidar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-row status-disabled row-disabled">
+                        <div class="row-cell col-nome">
+                            <div class="avatar avatar-ir">IR</div>
+                            <span class="user-name">Igor Rodrigues</span>
+                        </div>
+                        <div class="row-cell col-cargo">
+                            <span class="cargo-title">Voluntário</span>
+                        </div>
+                        <div class="row-cell col-token">
+                            <label class="mobile-label">LINK DE CONVITE</label>
+                            <div class="link-input-wrapper">
+                                <span class="link-icon">🔗</span>
+                                <input type="text" class="input-link" value="https://proftime.com/cadastro?token=ir..." readonly>
+                            </div>
+                        </div>
+                        <div class="row-cell col-data">
+                            <label class="mobile-label">DATA DE CRIAÇÃO</label>
+                            <span class="data-text">15/05/2025</span>
+                        </div>
+                        <div class="row-cell col-status">
+                            <span class="badge status-invalidado">Invalidado</span>
+                        </div>
+                        <div class="row-cell col-acoes">
+                            <button class="btn btn-copiar" disabled title="Ação desativada">
+                                <span class="btn-icon">📋</span> Copiar Link
+                            </button>
+                            <button class="btn btn-invalidar" disabled title="Ação desativada">
+                                <span class="btn-icon">🚫</span> Invalidar
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            <!-- <div class="gerencial-grid-container">
+                <div class="table-header">
+                    <div class="header-cell col-nome">NOME</div>
+                    <div class="header-cell col-cargo">CARGO</div>
+                    <div class="header-cell col-token">TOKEN / LINK</div>
+                    <div class="header-cell col-data">DATA</div>
+                    <div class="header-cell col-status">STATUS</div>
+                    <div class="header-cell col-acoes">AÇÕES</div>
+                </div>
+
+                <div class="table-body">
+
+                    <div class="table-row">
+
+                        <div class="row-cell col-nome">
+                            <div class="avatar avatar-ma">MA</div>
+                            <span class="user-name">Marcos Almeida</span>
+                        </div>
+
+                       
+
+                        <div class="row-cell col-cargo">
+                            <span class="cargo-title">Coordenador</span>
+                        </div>
+
+                        <div class="row-cell col-token">
+                            <label class="mobile-label">LINK DE CONVITE</label>
+                            <div class="link-input-wrapper">
+                                <span class="link-icon">🔗</span>
+                                <input type="text" class="input-link" value="https://proftime.com/cadastro?token=ma..." readonly>
+                            </div>
+                        </div>
+
+                        <div class="row-cell col-data">
+                            <label class="mobile-label">DATA DE CRIAÇÃO</label>
+                            <span class="data-text">28/05/2025</span>
+                        </div>
+                        
+
+                    </div>
+
+
+                </div> -->
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+    </form>
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    
+    <script type="module" src="../script/core/theme-engine.js"></script>
+
+    <script type="module" src="../script/components/form/convite/Pessoa_Select.js"></script>
+    <script type="module" src="../script/components/form/convite/Cargo_Select.js"></script>
+    
+    <script type="module" src="../script/pages/convite.js"></script>
+    
+</body>
+</html>

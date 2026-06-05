@@ -61,14 +61,16 @@ window.addEventListener('load', () => {
         // Mapeamento de itens para REMOVER do menu em cada contexto
         // O texto deve ser idêntico ao que está no HTML (case-sensitive)
         menuPermitido: {
-            proftime : ["Login", "Minha Conta", "Instituição", "Horário", "Evento", "Calendário", "Planejamento", "Chave Testes"], // Itens que a Pastoral NÃO vê
-            pastoral: ["Login", "Pessoa", "Cúria", "Paróquia", "Voluntário", "Chave Testes"] // Itens que o Professor NÃO vê
+            proftime : ["Login", "Minha Conta", "Instituição", "Horário", "Evento", "Calendário", "Planejamento", "Chave Testes" ],
+            pastoral: ["Login", "Pessoa", "Cúria", "Paróquia", "Voluntário", "Convite", "Chave Testes"]
         },
 
         // 2. NOVA LOGA: FILTRO POR PERFIL (Baseado na Role do Backend)
         // Aqui listamos explicitamente quais itens EXTRAS cada perfil tem direito de ver.
+        // CASO O ITEM DO MENU ESTEJA NAS ROLES, ELE SÓ APARECE NAQUELA ROLE
+        // ADICIONAR OS ITENS QUE SOMENTE UMA ROLE PODE VER
         menuPorPerfil: {
-            'ROLE_ADMIN': ["Convite", "Configurações Globais", "Chave Testes"], 
+            'ROLE_ADMIN': ["Configurações Globais"], 
             'ROLE_MEMBRO': ["Meus Dados", "Minhas Atividades"],
             'ROLE_PROFESSOR': ["Minhas Turmas", "Diário de Classe"],
             'ROLE_USUARIO': [] // Perfil básico inicial, não ganha itens extras por padrão
@@ -89,6 +91,34 @@ window.addEventListener('load', () => {
 
     };
 
+    // const tratarMenuContexto = (contexto) => {        
+    //     const itensPermitidos = CONFIG.menuPermitido[contexto];  
+
+    //     if (!itensPermitidos) {           
+    //         return;
+    //     }
+
+    //     // Seleciona os links usando o seletor corrigido para o seu HTML
+    //     const linksMenu = document.querySelectorAll('.nav-links a');
+       
+    //     linksMenu.forEach((link) => {
+    //         const textoItem = link.innerText.trim();
+            
+    //         console.log( textoItem );
+
+    //         // Verifica se o texto do item NÃO está na lista de permitidos
+    //         const deveRemover = !itensPermitidos.includes(textoItem);
+
+    //         if (deveRemover) {
+    //             const liContainer = link.closest('li');
+    //             if (liContainer) {
+    //                 liContainer.remove();                   
+    //             }
+    //         } 
+    //     });
+       
+    // };
+
     const tratarMenuContexto = (contexto) => {        
         const itensPermitidos = CONFIG.menuPermitido[contexto];  
 
@@ -96,24 +126,55 @@ window.addEventListener('load', () => {
             return;
         }
 
-        // Seleciona os links usando o seletor corrigido para o seu HTML
-        const linksMenu = document.querySelectorAll('.nav-links a');
-       
+        // 1. Seleciona o container pai onde todas as <li> ficam guardadas
+        // Ajuste o seletor '.nav-links' se o container pai direto for uma <ul> ou <ol>
+        const menuContainer = document.querySelector('.nav-links'); 
+        if (!menuContainer) return;
+
+        // 2. Busca todos os links do menu
+        const linksMenu = menuContainer.querySelectorAll('a');
+        
+        // Guardaremos os elementos válidos em um array temporário para reordenação
+        const itensParaExibir = [];
+
         linksMenu.forEach((link) => {
             const textoItem = link.innerText.trim();
-            
-            // Verifica se o texto do item NÃO está na lista de permitidos
-            const deveRemover = !itensPermitidos.includes(textoItem);
+            const liContainer = link.closest('li');
 
-            if (deveRemover) {
-                const liContainer = link.closest('li');
-                if (liContainer) {
-                    liContainer.remove();                   
-                }
-            } 
+            if (!liContainer) return;
+
+            // Verifica se o item pertence ao contexto atual
+            const indicePermitido = itensPermitidos.indexOf(textoItem);
+
+            if (indicePermitido !== -1) {
+                // Se o item for permitido, salvamos o elemento e a posição correta dele
+                itensParaExibir.push({
+                    elemento: liContainer,
+                    ordem: indicePermitido
+                });
+            } else {
+                // Se não for permitido, removemos do HTML imediatamente
+                liContainer.remove();
+            }
         });
-       
+
+        // 3. Ordena os elementos baseado na ordem definida no seu objeto 'menuPermitido'
+        itensParaExibir.sort((a, b) => a.ordem - b.ordem);
+
+        // 4. Reinsere os elementos no container, agora na ordem perfeitamente correta
+        itensParaExibir.forEach(item => {
+            menuContainer.appendChild(item.elemento);
+        });
     };
+
+
+
+
+
+
+
+
+
 
     // NOVA FUNÇÃO: Remove itens restritos se o usuário não tiver o perfil correto
     const tratarMenuPorPerfil = () => {
@@ -121,8 +182,16 @@ window.addEventListener('load', () => {
         // Se não houver nada, tratamos como string vazia ou perfil básico 'ROLE_USUARIO'
         const perfilUsuario = localStorage.getItem('user_role') || 'ROLE_USUARIO';
 
+        console.log("-----------------------------------------------------------------");
+        console.log("O perfil do usuário --> " + perfilUsuario);
+        console.log("-----------------------------------------------------------------");
+
         // Descobre quais itens são liberados especificamente para esse perfil
         const itensLiberadosPeloPerfil = CONFIG.menuPorPerfil[perfilUsuario] || [];
+
+        console.log("-----------------------------------------------------------------");
+        console.log("Itens Liberados pelo Perfil --> " + itensLiberadosPeloPerfil);
+        console.log("-----------------------------------------------------------------");
 
         // Mapeia TODOS os itens que exigem alguma permissão especial
         // (Basicamente junta todos os arrays de 'menuPorPerfil' para saber o que é protegido)
@@ -230,7 +299,7 @@ window.addEventListener('load', () => {
     aplicarAssets(contexto); // <--- Adicione esta linha
     
     tratarMenuContexto(contexto); // 1º Aplica o filtro de escopo (Pastoral ou ProfTime)
-    tratarMenuPorPerfil();        // 2º Aplica o filtro fino de permissões do usuário logado
+    //tratarMenuPorPerfil();        // 2º Aplica o filtro fino de permissões do usuário logado
 
     gerenciarRedirecionamento();
 });
