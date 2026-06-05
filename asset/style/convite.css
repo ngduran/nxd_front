@@ -194,19 +194,21 @@
 }
 
 .btn-copiar {
-    background-color: #21a970;
-    color: #ffffff;
+    /* background-color: #21a970; */
+    background-color: #68e5b1;
+    color: #000000;
 }
 .btn-copiar:hover:not(:disabled) {
-    background-color: #1c9461;
+    background-color: #37da96;
 }
 
 .btn-invalidar {
-    background-color: #e54141;
-    color: #ffffff;
+    /* background-color: #e54141; */
+    background-color: #eba0a0;
+    color: #000000;
 }
 .btn-invalidar:hover:not(:disabled) {
-    background-color: #ce3636;
+    background-color: #f06969;
 }
 
 /* --- Estado Desativado (Row Disabled) --- */

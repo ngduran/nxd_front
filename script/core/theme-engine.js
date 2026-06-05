@@ -62,7 +62,7 @@ window.addEventListener('load', () => {
         // O texto deve ser idêntico ao que está no HTML (case-sensitive)
         menuPermitido: {
             proftime : ["Login", "Minha Conta", "Instituição", "Horário", "Evento", "Calendário", "Planejamento", "Chave Testes" ],
-            pastoral: ["Login", "Pessoa", "Cúria", "Paróquia", "Voluntário", "Convite", "Chave Testes"]
+            pastoral: ["Login", "Pessoa", "Cúria", "Paróquia", "Voluntário", "Convite", "Chave Testes", "Cargo"]
         },
 
         // 2. NOVA LOGA: FILTRO POR PERFIL (Baseado na Role do Backend)

@@ -120,8 +120,25 @@ export function navegarPara(nomePagina, resetarShell = false) {
     
     } else {
         // Mantém o Menu e altera apenas o conteúdo do Iframe
-        const pagina = nomePagina.replace('.html', '');  
-        window.location.href = `${pagina}.html`;
+        const pagina = nomePagina.replace('.html', '');
+        
+        //Alterado aqui comentado a linha e adicionado as outras
+        //window.location.href = `${pagina}.html`;
+
+        // --- CORREÇÃO CIRÚRGICA ---
+        // Em vez de mudar o href do frame atual, buscamos o iframe principal na janela PAI
+        const mainFrame = window.top.document.getElementById('main-frame');
+
+        if (mainFrame) {
+            // Altera o SRC do iframe pai. Isso destrói a página antiga e carrega a nova de forma limpa!
+            mainFrame.src = `${pagina}.html`;
+        } else {
+            // Fallback de segurança caso não encontre o iframe (ou se a página já estiver no topo)
+            window.location.href = `${pagina}.html`;
+        }
+        // ---------------------------
+
+
     }
 }
 
