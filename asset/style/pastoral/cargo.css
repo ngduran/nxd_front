@@ -1,0 +1,53 @@
+.form-container { 
+    width: 100% !important; 
+    max-width: 1000px !important; 
+}
+
+/* ==========================================================================
+   DISTRIBUIÇÃO DOS BLOCOS (GRID EXTERNO)
+   ========================================================================== */
+
+/* Garante que o form use flexbox para alinhar os blocos filhos */
+.painel-colunas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+/* ESTILO RECORTE 2 e 3: Faixa com fundo vinho e texto branco (Áreas 2 e 3) */
+.header-bloco-colorido {
+    /* background-color: #5c243a; Tom vinho correspondente ao botão Salvar */
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    padding: 12px 20px;
+    
+    /* Truque CSS: anula o padding de 20px do .area-painel pai para colar nas bordas */
+    margin: -15px -15px 0.5rem -15px; 
+    
+    /* Arredonda apenas as pontas superiores acompanhando o card */
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+
+/* Regras aplicadas apenas em computadores e tablets (telas maiores) */
+@media (min-width: 768px) {
+
+    .painel-colunas {
+        flex-direction: row; /* Muda para linha para colocar lado a lado */
+        flex-wrap: wrap;     /* Permite que a terceira área quebre para baixo */
+    }
+    
+    .bloco-listagem {
+        flex: 2 1 65%; /* Lado esquerdo superior: ganha mais espaço proporcional */
+    }
+
+    .bloco-cadastro {
+        flex: 1 1 30%; /* Lado direito superior: ocupa o espaço restante */
+    }
+
+    .bloco-permissoes {
+        flex: 1 1 100%; /* Linha inferior: força ocupação de ponta a ponta (100%) */
+        width: 100%;
+    }
+}

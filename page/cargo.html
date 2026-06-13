@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prof Time Conta - Cadastro</title>
     <link rel="stylesheet" href="../asset/style/base/base-form.css">
-    <link rel="stylesheet" href="../asset/style/conta.css">
+    <link rel="stylesheet" href="../asset/style/pastoral/cargo.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -16,7 +16,7 @@
         <div class="field-container">
             <div class="field-group col-0">
                 <div class="field-col">
-                    <h1 class="header-title" data-translate="lbl_titulo">Cargo</h1>
+                    <h1 class="header-title" data-translate="lbl_titulo">Painel de Cargos</h1>
                 </div>
             </div>
         </div>
@@ -33,34 +33,104 @@
                 </div>
             </div>
         </div>
-        
-        <div class="field-container">
-            <div class="field-group col-0">
-                 <div class="field-col">
-                    <cargo-field
-                        id                     = "cargo"
-                        name                   = "cargo"                                
-                        data_translate_label   = "lbl_cargo"
-                        data_translate_ph      = "ph_cargo"
-                        data_translate_tooltip = "tp_lbl_cargo"
-                        icon_question          = "fa-solid fa-circle-question info-question"
-                        >
-                    </cargo-field>
-                 </div>
+
+        <div class="painel-colunas">
+
+            <div class="field-container bloco-listagem">
+
+                <div class="field-group col-0">
+                    <div class="field-col">
+                        <div class="header-bloco-colorido">
+                            <i class="fa-solid fa-user panel-icon"></i>
+                            <span class="panel-title" data-translate="lbl_cargos_ativos">Cargos Ativos / Cargos Cadastrados</span>
+                        </div>
+                    </div>
+                </div>  
+
+                <div class="field-container">            
+
+                    <div class="field-group col-4">
+                        <div class="field-col">
+                            <cargo-select 
+                                scope                  = "cargo"
+                                id                     = "filtro-cargo"
+                                name                   = "filtro-cargo"                           
+                                data_translate_label   = "lbl_filtro-cargo"
+                                data_translate_op      = "ph_filtro-cargo_op0"                   
+                                icon_question          = "fa-solid fa-circle-question info-question"
+                                data_translate_tooltip = "tp_lbl_filtro-cargo"
+                                placeholder            = "Selecione o cargo"                            
+                            >
+                            </cargo-select>
+                        </div>
+                    </div>
+
+                    <div class="field-group col-4">
+                        <div class="field-col">
+                            <cargo-select 
+                                scope                  = "cargo"
+                                id                     = "filtro-movimento"
+                                name                   = "filtro-movimento"                           
+                                data_translate_label   = "lbl_filtro-movimento"
+                                data_translate_op      = "ph_filtro-movimento_op0"                   
+                                icon_question          = "fa-solid fa-circle-question info-question"
+                                data_translate_tooltip = "tp_lbl_filtro-movimento"
+                                placeholder            = "Selecione o movimento"                            
+                            >
+                            </cargo-select>
+                        </div>
+                    </div>
+                    
+                    <div class="field-group col-2">
+                        <div class="field-col">
+                            <cargo-select 
+                                scope                  = "cargo"
+                                id                     = "filtro-status"
+                                name                   = "filtro-status"                           
+                                data_translate_label   = "lbl_filtro-status"
+                                data_translate_op      = "ph_filtro-status_op0"                   
+                                icon_question          = "fa-solid fa-circle-question info-question"
+                                data_translate_tooltip = "tp_lbl_filtro-status"
+                                placeholder            = "Selecione o status"                            
+                            >
+                            </cargo-select>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
+             
+    
+            <div class="field-container bloco-cadastro">
+                <div class="field-group col-0">
+                    <div class="field-col">
+                        <div class="header-bloco-colorido">
+                            <i class="fa-solid fa-square-plus panel-icon"></i>
+                            <span class="panel-title">[+] Novo Cargo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="field-container bloco-permissoes">
+                <div class="field-group col-0">
+                    <div class="field-col">
+                        <div class="header-bloco-colorido">
+                            <i class="fa-solid fa-lock panel-icon"></i>
+                            <span class="panel-title" data-translate="lbl_permissoes_atreladas">Permissões Atreladas ao Cargo Selecionado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="field-container">
-            <!-- <div class="field-group col-5">
-                <div class="field-col"></div>
-                <button type="button" id="voltarBtn"    class="cta-button" data-translate="lbl_voltarBtn">Voltar</button>
-            </div>    -->
-            <div class="field-group col-0">
-                <div class="field-col"></div>
-                <button type="button" id="cadastrarBtn" class="cta-button" data-translate="lbl_cadastrarBtn">Salvar</button>
-            </div>
-        </div>
-    
+
+
+
+
+
     
     </form>
 
@@ -68,7 +138,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script type="module" src="../script/core/theme-engine.js"></script>
-    <script type="module" src="../script/components/form/cargo/Cargo_Field.js"></script>
+    <script type="module" src="../script/components/form/cargo/Cargo_Select.js"></script>
 
     <script type="module" src="../script/pages/pastoral/cargo.js"></script>
     

@@ -55,7 +55,7 @@ window.addEventListener('load', () => {
         
         labels: {
             proftime: "ProfTime",
-            pastoral: "Pastoral"
+            pastoral: "Omnibit"
         },
 
         // Mapeamento de itens para REMOVER do menu em cada contexto

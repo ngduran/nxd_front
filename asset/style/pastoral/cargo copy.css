@@ -1,0 +1,143 @@
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   ESTRUTURA DAS TRÊS ÁREAS (MACRO-LAYOUT)
+   ========================================================================== */
+
+/* Container que gerencia as duas áreas superiores lado a lado */
+.workspace-layout {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem; /* Espaço de segurança antes da Área 3 */
+    box-sizing: border-box;
+}
+
+/* Regra geral para os 3 blocos (Cards) */
+.area-painel {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo sutil para teste visual */
+    border: 2px dashed #8e44ad;                 /* Borda tracejada para demarcar o espaço */
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 150px;                          /* Altura mínima para o bloco vazio não sumir */
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Proporções das áreas superiores no Desktop (Baseado na sua imagem) */
+.area-listagem {
+    flex: 1.6; /* A lista ganha mais espaço horizontal */
+}
+
+.area-cadastro {
+    flex: 1;   /* O formulário ocupa o espaço restante de forma equilibrada */
+}
+
+/* Área 3 (Base) ocupa 100% da largura automaticamente por estar fora do flex container */
+.area-permissoes {
+    width: 100%;
+}
+
+/* ==========================================================================
+   CABEÇALHOS DOS PAINÉIS (ÍCONES + TEXTOS)
+   ========================================================================== */
+
+/* Base comum para todos os cabeçalhos de painel */
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+
+/* Tamanho proporcional dos ícones */
+.panel-icon {
+    font-size: 1.2rem;
+}
+
+/* Texto do título */
+.panel-title {
+    font-size: 1.1rem;
+}
+
+/* ESTILO RECORTE 1: Apenas texto escuro integrado (Área 1) */
+.header-texto-direto {
+    /* color: #3b1624; Tom escuro idêntico ao título principal */
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    padding-left: 5px;
+}
+
+/* ESTILO RECORTE 2 e 3: Faixa com fundo vinho e texto branco (Áreas 2 e 3) */
+.header-bloco-colorido {
+    /* background-color: #5c243a; Tom vinho correspondente ao botão Salvar */
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    padding: 12px 20px;
+    
+    /* Truque CSS: anula o padding de 20px do .area-painel pai para colar nas bordas */
+    margin: -15px -15px 0.5rem -15px; 
+    
+    /* Arredonda apenas as pontas superiores acompanhando o card */
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   RESPONSIVIDADE (TELAS MENORES / CELULARES)
+   ========================================================================== */
+
+/* Dispositivos com largura de até 768px (Tablets e Celulares) */
+@media screen and (max-width: 768px) {
+    .workspace-layout {
+        flex-direction: column; /* Transforma o layout lado a lado em empilhado */
+        gap: 1rem;              /* Mantém o espaçamento seguro entre os blocos empilhados */
+    }
+
+    .area-listagem, 
+    .area-cadastro {
+        flex: 1 1 auto;         /* Cancela a proporção lateral do desktop */
+        width: 100%;            /* Força os blocos a ocuparem a largura total da tela */
+    }
+
+    .area-painel {
+        padding: 15px;          /* Compacta levemente o espaço interno no mobile */
+        min-height: 120px;      /* Reduz a altura mínima para economizar tela vertical */
+    }
+
+    /* ==========================================================================
+        AJUSTES DE RESPONSIVIDADE PARA OS CABEÇALHOS
+    ========================================================================== */
+    .header-bloco-colorido {
+        /* Acompanha a redução do padding que fizemos para o container pai no mobile */
+        margin: -15px -15px 0.5rem -15px; 
+        padding: 10px 15px;
+    }
+    
+    .panel-title {
+        font-size: 1rem; /* Compacta levemente a fonte em telas menores */
+    }
+    
+    .panel-icon {
+        font-size: 1.1rem;
+    }
+}

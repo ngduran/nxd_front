@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof Time Conta - Cadastro</title>
+    <link rel="stylesheet" href="../asset/style/base/base-form.css">
+    <link rel="stylesheet" href="../asset/style/pastoral/cargo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <form id="cargoForm" class="form-container" autocomplete="off">
+
+         <div class="field-container">
+            <div class="field-group col-0">
+                <div class="field-col">
+                    <h1 class="header-title" data-translate="lbl_titulo">Painel de Cargos</h1>
+                </div>
+            </div>
+        </div>
+     
+        <div class="field-container">
+            <div class="field-group col-0">
+                <div class="field-col posicao-end">
+                    <button type="button" id="btn-pt" class="lang-btn active">
+                            <img class="icon-flag" src="../asset/icon/bandeira-do-brasil.png" alt="Bandeira do Brasil">
+                        </button>                   
+                        <button type="button" id="btn-es" class="lang-btn">
+                            <img class="icon-flag" src="../asset/icon/paraguai.png" alt="Bandeira do Paraguai">
+                        </button> 
+                </div>
+            </div>
+        </div>
+
+        <div class="field-container">            
+
+            <div class="field-group col-4">
+                <div class="field-col">
+                    <cargo-select 
+                        scope                  = "cargo"
+                        id                     = "filtro-cargo"
+                        name                   = "filtro-cargo"                           
+                        data_translate_label   = "lbl_filtro-cargo"
+                        data_translate_op      = "ph_filtro-cargo_op0"                   
+                        icon_question          = "fa-solid fa-circle-question info-question"
+                        data_translate_tooltip = "tp_lbl_filtro-cargo"
+                        placeholder            = "Selecione o cargo"                            
+                    >
+                    </cargo-select>
+                </div>
+            </div>
+
+            <div class="field-group col-4">
+                <div class="field-col">
+                    <cargo-select 
+                        scope                  = "cargo"
+                        id                     = "filtro-movimento"
+                        name                   = "filtro-movimento"                           
+                        data_translate_label   = "lbl_filtro-movimento"
+                        data_translate_op      = "ph_filtro-movimento_op0"                   
+                        icon_question          = "fa-solid fa-circle-question info-question"
+                        data_translate_tooltip = "tp_lbl_filtro-movimento"
+                        placeholder            = "Selecione o movimento"                            
+                    >
+                    </cargo-select>
+                </div>
+            </div>
+            
+            <div class="field-group col-2">
+                <div class="field-col">
+                    <cargo-select 
+                        scope                  = "cargo"
+                        id                     = "filtro-status"
+                        name                   = "filtro-status"                           
+                        data_translate_label   = "lbl_filtro-status"
+                        data_translate_op      = "ph_filtro-status_op0"                   
+                        icon_question          = "fa-solid fa-circle-question info-question"
+                        data_translate_tooltip = "tp_lbl_filtro-status"
+                        placeholder            = "Selecione o status"                            
+                    >
+                    </cargo-select>
+                </div>
+            </div>
+        </div>
+
+            <div class="field-group col-2">
+                <div class="field-col">
+                    
+                    <div class="header-bloco-colorido">
+                        <i class="fa-solid fa-user panel-icon"></i>
+                        <span class="panel-title" data-translate="lbl_cargos_ativos">Cargos Ativos / Cargos Cadastrados</span>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>       
+
+
+        <div class="field-container">
+
+            <div class="field-group col-0">
+                <div class="field-col">
+                    
+                    <div class="header-bloco-colorido">
+                        <i class="fa-solid fa-user panel-icon"></i>
+                        <span class="panel-title" data-translate="lbl_cargos_ativos">Cargos Ativos / Cargos Cadastrados</span>
+                    </div>
+
+                </div>
+            </div>
+        
+        </div>
+
+    
+    </form>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <script type="module" src="../script/core/theme-engine.js"></script>
+    <script type="module" src="../script/components/form/cargo/Cargo_Select.js"></script>
+
+    <script type="module" src="../script/pages/pastoral/cargo.js"></script>
+    
+        
+    
+</body>
+</html>
